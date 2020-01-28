@@ -1,11 +1,13 @@
 package com.msarpong.mydays.ui.add
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProviders
 import com.msarpong.mydays.R
+import com.msarpong.mydays.ui.add.text.AddTextScreen
 
 
 class ChoiceScreen : AppCompatActivity() {
@@ -27,7 +29,9 @@ class ChoiceScreen : AppCompatActivity() {
 
         goToAddText = findViewById(R.id.add_text)
         goToAddText.setOnClickListener {
-            Toast.makeText(this, "Go to text", Toast.LENGTH_LONG).show()
+//            Toast.makeText(this, "Go to text", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, AddTextScreen::class.java)
+            startActivity(intent)
         }
     }
 

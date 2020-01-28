@@ -39,7 +39,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="1dp"
         android:text="22, Gennaio 2020"
         android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"

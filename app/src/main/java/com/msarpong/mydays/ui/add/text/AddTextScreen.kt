@@ -2,6 +2,7 @@ package com.msarpong.mydays.ui.add.text
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.msarpong.mydays.R
 
 class AddTextScreen : AppCompatActivity() {
 
