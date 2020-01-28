@@ -1,12 +1,13 @@
-package com.msarpong.mydays
+package com.msarpong.mydays.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.msarpong.mydays.R
 
-class MainActivity : AppCompatActivity() {
+class MainScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.main_screen)
     }
 }
