@@ -1,5 +1,6 @@
 package com.msarpong.mydays.ui.add
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProviders
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.text.AddTextScreen
+import com.msarpong.mydays.ui.main.MainScreen
 
 
 class ChoiceScreen : AppCompatActivity() {
@@ -29,10 +31,31 @@ class ChoiceScreen : AppCompatActivity() {
 
         goToAddText = findViewById(R.id.add_text)
         goToAddText.setOnClickListener {
-//            Toast.makeText(this, "Go to text", Toast.LENGTH_LONG).show()
             val intent = Intent(this, AddTextScreen::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, 1000)
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1000 && resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+//                title = data.extras!!.getString("ADD_NOTE_TITLE")
+//                Toast.makeText(this, title, Toast.LENGTH_LONG).show()
+
+                choiceViewModel.send(
+
+                )
+            }
+
+            returntToMain()
+        }
+
+    }
+
+    private fun returntToMain() {
+        val intent = Intent(this, MainScreen::class.java)
+        startActivity(intent)
     }
 
 //    private fun setupObserver() {

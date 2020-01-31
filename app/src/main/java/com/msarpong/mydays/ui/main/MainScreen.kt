@@ -1,10 +1,12 @@
 package com.msarpong.mydays.ui.main
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.ChoiceScreen
@@ -31,21 +33,17 @@ class MainScreen : AppCompatActivity() {
         myTodayDate = findViewById(R.id.tv_title)
         myTodayDate.setText(dateToday())
         addButton = findViewById(R.id.btn_add_new)
+
         addButton.setOnClickListener {
             val intent = Intent(this, ChoiceScreen::class.java)
             startActivity(intent)
-
         }
     }
 
     private fun setupObserver() {
-//        mainViewModel.state.observe(this, Observer { state ->
-//            when(state){
-//                is MainState.TextChanged -> TODO()
-//            }
-//
-//        })
+
     }
+
 
     private fun dateToday(): String {
         val pattern = "EEEE, dd MMMM yyyy"
@@ -53,7 +51,6 @@ class MainScreen : AppCompatActivity() {
         val current = SimpleDateFormat(pattern)
         val today = current.format(Date())
         return capitalize(today)
-
     }
 
     private fun capitalize(line: String): String {
