@@ -10,6 +10,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.text.AddTextScreen
 import com.msarpong.mydays.ui.main.MainScreen
+import org.msarpong.mydays.Db.Notes
+import kotlin.random.Random
 
 
 class ChoiceScreen : AppCompatActivity() {
@@ -40,11 +42,19 @@ class ChoiceScreen : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1000 && resultCode == Activity.RESULT_OK) {
             if (data != null) {
-//                title = data.extras!!.getString("ADD_NOTE_TITLE")
-//                Toast.makeText(this, title, Toast.LENGTH_LONG).show()
 
                 choiceViewModel.send(
-
+                    MyDaysEvent.AddNote(
+                        Notes(
+                            id = Random.nextInt().toString(),
+                            title = data.extras!!.getString("ADD_NOTE_TITLE").toString(),
+                            type = "TEXT",
+                            text = data.extras!!.getString("ADD_NOTE_TEXT").toString(),
+                            mood = Random.nextInt().toString(),
+                            image = Random.nextInt().toString(),
+                            datetime = data.extras!!.getString("ADD_NOTE_DATE").toString()
+                        )
+                    )
                 )
             }
 

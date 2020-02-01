@@ -7,6 +7,11 @@
     <color name="colorBackground">#191A1D</color>
     <color name="colorBackgroundItem">#27282A</color>
     <color name="colorPrimaryText">#DFDFDF</color>
+
+
+    <color name="colorItem">#353A50</color>
+    <color name="colorText">#DEDFE3</color>
+
 </resources>
 
 
