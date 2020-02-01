@@ -16,8 +16,6 @@ sealed class MainEvent {
     data class DateToday(val text: String) : MainEvent()
     object Load : MainEvent()
     data class AddNote(val dayNotes: Notes) : MainEvent()
-
-
 }
 
 sealed class MainState {
@@ -44,7 +42,6 @@ class MainScreenViewModel(application: Application) : AndroidViewModel(applicati
     fun send(event: MainEvent) {
         when (event) {
             is MainEvent.Load -> loadContent()
-
         }
     }
 
