@@ -24,9 +24,8 @@ class ChoiceScreen : AppCompatActivity() {
         choiceViewModel = ViewModelProviders.of(this).get(ChoiceScreenViewModel::class.java)
 
         setContentView(R.layout.choice_screen)
-
         setupView()
-//
+
     }
 
     private fun setupView() {
