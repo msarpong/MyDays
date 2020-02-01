@@ -1,9 +1,12 @@
 package com.msarpong.mydays.ui.add.text
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import com.msarpong.mydays.R
@@ -29,6 +32,7 @@ class AddTextScreen : AppCompatActivity() {
         saveBtn.setOnClickListener {
             val title = findViewById<EditText>(R.id.editTitle).text.toString()
             val body = findViewById<EditText>(R.id.editBody).text.toString()
+
             val dateNote = dateToday()
 
             intent.putExtra("ADD_NOTE_TITLE", title)
@@ -48,5 +52,6 @@ class AddTextScreen : AppCompatActivity() {
         val today = current.format(Date())
         return today
     }
+
 
 }
