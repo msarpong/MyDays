@@ -89,11 +89,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/round_btn_text"
+                        android:clickable="true"
                         android:text="Text"
                         android:textColor="@color/colorPrimaryText" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/add_sport"
@@ -102,7 +104,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 app:cardBackgroundColor="@color/colorBackgroundItem"
-                app:cardCornerRadius="25dp" >
+                app:cardCornerRadius="25dp">
 
 
                 <LinearLayout
@@ -117,8 +119,8 @@
                         android:id="@+id/icon_running"
                         android:layout_width="45dp"
                         android:layout_height="45dp"
-                        android:padding="4dp"
                         android:layout_marginBottom="20dp"
+                        android:padding="4dp"
                         app:srcCompat="@drawable/ic_icon_awesome_running" />
 
                     <Button
