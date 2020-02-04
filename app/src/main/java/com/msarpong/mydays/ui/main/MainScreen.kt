@@ -3,6 +3,7 @@ package com.msarpong.mydays.ui.main
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
@@ -77,8 +78,15 @@ class MainScreen : AppCompatActivity() {
         })
     }
 
-    private fun showDatas(moneyTransactions: List<Notes>) {
-        mainAdapter.submitList(moneyTransactions)
+    private fun showDatas(notes: List<Notes>) {
+        mainAdapter.submitList(notes)
+
+        notes.forEach {
+            var temp = it.id.plus(", ")
+                .plus(it.type).plus(", ")
+                .plus(it.title).plus("\n")
+            Log.i("ITEM: ", temp)
+        }
     }
 
     private fun showError(error: Throwable) {

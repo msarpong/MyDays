@@ -5,8 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
-import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProviders
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.text.AddTextScreen
