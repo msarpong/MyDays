@@ -38,15 +38,13 @@
         android:id="@+id/tv_calendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="1dp"
-        android:text="22, Gennaio 2020"
+        android:layout_marginTop="25dp"
+        android:text="Choice"
         android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_header" />
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -66,73 +64,33 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/add_text"
-                android:layout_width="180dp"
-                android:layout_height="200dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="10dp"
-                android:clickable="true"
-                app:cardBackgroundColor="@color/colorBackgroundItem"
-                app:cardCornerRadius="25dp">
+            <Button
+                android:id="@+id/btn_to_text"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/round_shape"
+                android:text="Text"
+                android:textColor="@color/colorPrimaryText" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal|center_vertical"
+            <Button
+                android:id="@+id/btn_to_sport"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/round_shape"
+                android:text="Sport"
+                android:textColor="@color/colorPrimaryText" />
 
-                    android:orientation="vertical">
+            <Button
+                android:id="@+id/btn_to_doctor"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/round_shape"
+                android:text="Doctor"
+                android:textColor="@color/colorPrimaryText" />
 
-                    <Button
-                        android:id="@+id/btn_to_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/round_btn_text"
-                        android:clickable="true"
-                        android:text="Text"
-                        android:textColor="@color/colorPrimaryText" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/add_sport"
-                android:layout_width="180dp"
-                android:layout_height="200dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                app:cardBackgroundColor="@color/colorBackgroundItem"
-                app:cardCornerRadius="25dp">
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center_horizontal|center_vertical"
-                    android:orientation="vertical">
-
-
-                    <ImageView
-                        android:id="@+id/icon_running"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:layout_marginBottom="20dp"
-                        android:padding="4dp"
-                        app:srcCompat="@drawable/ic_icon_awesome_running" />
-
-                    <Button
-                        android:id="@+id/btn_to_run"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/round_btn_text"
-                        android:text="Sport"
-                        android:textColor="@color/colorPrimaryText" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </LinearLayout>

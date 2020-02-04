@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProviders
@@ -17,7 +18,7 @@ import kotlin.random.Random
 class ChoiceScreen : AppCompatActivity() {
 
     private lateinit var choiceViewModel: ChoiceScreenViewModel
-    private lateinit var goToAddText: CardView
+    private lateinit var goToAddText: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +31,7 @@ class ChoiceScreen : AppCompatActivity() {
 
     private fun setupView() {
 
-        goToAddText = findViewById(R.id.add_text)
+        goToAddText = findViewById(R.id.btn_to_text)
         goToAddText.setOnClickListener {
             val intent = Intent(this, AddTextScreen::class.java)
             startActivityForResult(intent, 1000)
@@ -56,10 +57,8 @@ class ChoiceScreen : AppCompatActivity() {
                     )
                 )
             }
-
             returntToMain()
         }
-
     }
 
     private fun returntToMain() {

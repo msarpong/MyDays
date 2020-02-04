@@ -18,6 +18,7 @@ class SplashScreen : AppCompatActivity() {
 
         Timer().schedule(3000) {
             startActivity(main)
+            finish()
         }
     }
 
