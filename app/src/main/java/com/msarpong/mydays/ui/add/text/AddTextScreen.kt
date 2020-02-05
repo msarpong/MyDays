@@ -30,9 +30,9 @@ class AddTextScreen : AppCompatActivity() {
 
         saveBtn = findViewById(R.id.btn_save)
         saveBtn.setOnClickListener {
+
             val title = findViewById<EditText>(R.id.editTitle).text.toString()
             val body = findViewById<EditText>(R.id.editBody).text.toString()
-
             val dateNote = dateToday()
 
             intent.putExtra("ADD_NOTE_TITLE", title)
@@ -41,17 +41,13 @@ class AddTextScreen : AppCompatActivity() {
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
-
-
     }
 
     private fun dateToday(): String {
-        val pattern = "dd-M-yyyy hh:mm:ss"
+        val pattern = "dd/M/yyyy hh:mm"
         Locale.setDefault(Locale.ITALIAN)
         val current = SimpleDateFormat(pattern)
         val today = current.format(Date())
         return today
     }
-
-
 }

@@ -93,7 +93,6 @@ class MainScreen : AppCompatActivity() {
         Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show()
     }
 
-
     private fun dateToday(): String {
         val pattern = "EEEE, dd MMMM yyyy"
         Locale.setDefault(Locale.ITALIAN)

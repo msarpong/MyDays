@@ -13,9 +13,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 sealed class MainEvent {
-    data class DateToday(val text: String) : MainEvent()
     object Load : MainEvent()
-    data class AddNote(val dayNotes: Notes) : MainEvent()
 }
 
 sealed class MainState {

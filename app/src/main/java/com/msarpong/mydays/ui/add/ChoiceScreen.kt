@@ -50,9 +50,6 @@ class ChoiceScreen : AppCompatActivity() {
                 editor.putInt("key_name", oldId + 1).apply() // Storing integer
                 var newId = pref.getInt("key_name", 0) // getting Integer
 
-
-
-
                 choiceViewModel.send(
                     MyDaysEvent.AddNote(
                         Notes(

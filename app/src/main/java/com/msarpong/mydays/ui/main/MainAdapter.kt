@@ -22,13 +22,19 @@ class MainAdapter :
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
         val diary = getItem(position)
+//        holder.diaryTitle.text = diary.title
+//        holder.diaryDate.text = diary.datetime
+        var str = diary.datetime
+        var delimiter = " "
+        val parts = str.split(delimiter)
         holder.diaryTitle.text = diary.title
-
+        holder.diaryDate.text = parts[0]
     }
 }
 
 class NotesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val diaryTitle = view.findViewById<TextView>(R.id.Tv_title)
+    val diaryDate = view.findViewById<TextView>(R.id.Tv_date)
 }
 
 class NotesDiffUtil : DiffUtil.ItemCallback<Notes>() {

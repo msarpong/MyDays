@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 //https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/#4
+
 @Dao
 interface MyDaysDao {
 
@@ -14,7 +15,6 @@ interface MyDaysDao {
 
     @Query("SELECT * from mydiary_notes WHERE datetime LIKE :todayDate ORDER by id DESC")
     suspend fun getNotesByDate(todayDate: String): List<Notes>
-
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(note: Notes)
