@@ -2,9 +2,10 @@ package com.msarpong.mydays.ui.add
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.text.AddTextScreen
@@ -41,10 +42,21 @@ class ChoiceScreen : AppCompatActivity() {
         if (requestCode == 1000 && resultCode == Activity.RESULT_OK) {
             if (data != null) {
 
+                val pref =
+                    applicationContext.getSharedPreferences("MyPref", 0) // 0 - for private mode
+                val editor = pref.edit()
+
+                var oldId = pref.getInt("key_name", 0) // getting Integer
+                editor.putInt("key_name", oldId + 1).apply() // Storing integer
+                var newId = pref.getInt("key_name", 0) // getting Integer
+
+
+
+
                 choiceViewModel.send(
                     MyDaysEvent.AddNote(
                         Notes(
-                            id = Random.nextInt().toString(),
+                            id = newId.toString(),
                             title = data.extras!!.getString("ADD_NOTE_TITLE").toString(),
                             type = "TEXT",
                             text = data.extras!!.getString("ADD_NOTE_TEXT").toString(),

@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface MyDaysDao {
 
-    @Query("SELECT * from mydiary_notes")
+    @Query("SELECT * from mydiary_notes ORDER by id DESC")
     suspend fun getAllNotes(): List<Notes>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
