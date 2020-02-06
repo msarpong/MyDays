@@ -12,6 +12,9 @@ interface MyDaysDao {
     @Query("SELECT * from mydiary_notes ORDER by id DESC")
     suspend fun getAllNotes(): List<Notes>
 
+    @Query("SELECT * from mydiary_notes WHERE id =:noteId")
+    suspend fun getNoteById(noteId: Int): Notes
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(note: Notes)
 
