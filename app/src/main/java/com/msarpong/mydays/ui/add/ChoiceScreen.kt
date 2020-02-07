@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProviders
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.text.AddTextScreen
@@ -17,7 +18,7 @@ import kotlin.random.Random
 class ChoiceScreen : AppCompatActivity() {
 
     private lateinit var choiceViewModel: ChoiceScreenViewModel
-    private lateinit var goToAddText: Button
+    private lateinit var goToAddText: CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +31,7 @@ class ChoiceScreen : AppCompatActivity() {
 
     private fun setupView() {
 
-        goToAddText = findViewById(R.id.btn_to_text)
+        goToAddText = findViewById(R.id.card_text)
         goToAddText.setOnClickListener {
             val intent = Intent(this, AddTextScreen::class.java)
             startActivityForResult(intent, 1000)
@@ -58,11 +59,11 @@ class ChoiceScreen : AppCompatActivity() {
                         Notes(
                             id = newId.toString(),
                             title = data.extras!!.getString("ADD_NOTE_TITLE").toString(),
-                            type = "TEXT",
+                            type = data.extras!!.getString("ADD_NOTE_TYPE").toString(),
                             text = data.extras!!.getString("ADD_NOTE_TEXT").toString(),
-                            mood = Random.nextInt().toString(),
-                            image = Random.nextInt().toString(),
-                            datetime = data.extras!!.getString("ADD_NOTE_DATE").toString()
+                            mood = data.extras!!.getString("ADD_NOTE_MOOD").toString(),
+                            image = data.extras!!.getString("ADD_NOTE_IMAGE").toString(),
+                            datetime = data.extras!!.getString("ADD_NOTE_DATETIME").toString()
                         )
                     )
                 )

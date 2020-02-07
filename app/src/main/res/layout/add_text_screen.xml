@@ -97,7 +97,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
@@ -149,10 +149,9 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center|center_horizontal"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:layout_gravity="center|center_horizontal"
-            android:padding="5000dp"
             app:cardBackgroundColor="@color/colorBackgroundItem"
             app:cardCornerRadius="5dp">
 
@@ -170,6 +169,7 @@
                 android:textSize="18dp" />
 
             <RadioGroup
+                android:id="@+id/radio_mood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -177,6 +177,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/mood_smile"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="15dp"
@@ -184,6 +185,7 @@
                     android:button="@null" />
 
                 <RadioButton
+                    android:id="@+id/mood_confused"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="15dp"
@@ -191,11 +193,12 @@
                     android:button="@null" />
 
                 <RadioButton
+                    android:id="@+id/mood_sad"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginStart="15dp"
                     android:background="@drawable/ic_sad"
-                    android:button="@null" />
+                    android:button="@null"/>
 
             </RadioGroup>
 

@@ -83,8 +83,10 @@ class MainScreen : AppCompatActivity() {
 
         notes.forEach {
             var temp = it.id.plus(", ")
+                .plus(it.title).plus(",")
                 .plus(it.type).plus(", ")
-                .plus(it.title).plus("\n")
+                .plus(it.text).plus(", ")
+                .plus(it.mood).plus(", ")
             Log.i("ITEM: ", temp)
         }
     }

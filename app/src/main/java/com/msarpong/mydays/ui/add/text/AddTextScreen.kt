@@ -5,10 +5,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
+import android.widget.*
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.main.MainScreen
 import java.text.SimpleDateFormat
@@ -17,8 +17,7 @@ import java.util.*
 class AddTextScreen : AppCompatActivity() {
 
     private lateinit var saveBtn: Button
-    private lateinit var titleET: EditText
-    private lateinit var bodyET: EditText
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,19 +29,36 @@ class AddTextScreen : AppCompatActivity() {
 
         saveBtn = findViewById(R.id.btn_save)
         saveBtn.setOnClickListener {
-            val title = findViewById<EditText>(R.id.editTitle).text.toString()
-            val body = findViewById<EditText>(R.id.editBody).text.toString()
+            val titleET = findViewById<EditText>(R.id.editTitle).text.toString()
+            val bodyET = findViewById<EditText>(R.id.editBody).text.toString()
+            val moodRB = findViewById<RadioGroup>(R.id.radio_mood)
+
+            var selectedId = moodRB.checkedRadioButtonId
+//            var radioButton = findViewById<RadioButton>(selectedId)
 
             val dateNote = dateToday()
+            var mood = "default"
 
-            intent.putExtra("ADD_NOTE_TITLE", title)
-            intent.putExtra("ADD_NOTE_BODY", body)
-            intent.putExtra("ADD_NOTE_DATE", dateNote)
+            var confused = R.id.mood_confused
+            var sad = R.id.mood_sad
+            var smile = R.id.mood_smile
+
+            when(selectedId){
+                confused -> mood = "sad"
+                sad -> mood = "sad"
+                smile -> mood = "smile"
+            }
+
+            intent.putExtra("ADD_NOTE_TITLE", titleET)
+            intent.putExtra("ADD_NOTE_TYPE", "text")
+            intent.putExtra("ADD_NOTE_TEXT", bodyET)
+            intent.putExtra("ADD_NOTE_MOOD", mood)
+            intent.putExtra("ADD_NOTE_IMAGE", "image")
+            intent.putExtra("ADD_NOTE_DATETIME", dateNote)
+
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
-
-
     }
 
     private fun dateToday(): String {
