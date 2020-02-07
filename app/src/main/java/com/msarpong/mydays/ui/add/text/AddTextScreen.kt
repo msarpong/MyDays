@@ -10,7 +10,10 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import com.msarpong.mydays.R
+import com.msarpong.mydays.ui.add.ChoiceScreen
+import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.main.MainScreen
+import com.msarpong.mydays.ui.setting.SettingScreen
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -18,6 +21,8 @@ class AddTextScreen : AppCompatActivity() {
 
     private lateinit var saveBtn: Button
 
+    private lateinit var calendarButton: ImageButton
+    private lateinit var settingButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +37,20 @@ class AddTextScreen : AppCompatActivity() {
             val titleET = findViewById<EditText>(R.id.editTitle).text.toString()
             val bodyET = findViewById<EditText>(R.id.editBody).text.toString()
             val moodRB = findViewById<RadioGroup>(R.id.radio_mood)
+
+            calendarButton = findViewById(R.id.btn_calendar)
+            settingButton = findViewById(R.id.btn_setting)
+
+
+            calendarButton.setOnClickListener {
+                val intent = Intent(this, CalendarScreen::class.java)
+                startActivity(intent)
+            }
+
+            settingButton.setOnClickListener {
+                val intent = Intent(this, SettingScreen::class.java)
+                startActivity(intent)
+            }
 
             var selectedId = moodRB.checkedRadioButtonId
 //            var radioButton = findViewById<RadioButton>(selectedId)

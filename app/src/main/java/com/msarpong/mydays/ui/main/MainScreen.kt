@@ -25,9 +25,11 @@ class MainScreen : AppCompatActivity() {
 
     private lateinit var mainViewModel: MainScreenViewModel
     private lateinit var myTodayDate: TextView
+
     private lateinit var addButton: Button
     private lateinit var calendarButton: ImageButton
     private lateinit var settingButton: ImageButton
+
     private lateinit var mainAdapter: MainAdapter
     private lateinit var recyclerView_home: RecyclerView
 

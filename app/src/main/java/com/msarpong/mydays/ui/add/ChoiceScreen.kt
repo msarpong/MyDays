@@ -5,12 +5,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProviders
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.text.AddTextScreen
+import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.main.MainScreen
+import com.msarpong.mydays.ui.setting.SettingScreen
 import org.msarpong.mydays.Db.Notes
 import kotlin.random.Random
 
@@ -19,6 +22,9 @@ class ChoiceScreen : AppCompatActivity() {
 
     private lateinit var choiceViewModel: ChoiceScreenViewModel
     private lateinit var goToAddText: CardView
+
+    private lateinit var calendarButton: ImageButton
+    private lateinit var settingButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +42,20 @@ class ChoiceScreen : AppCompatActivity() {
             val intent = Intent(this, AddTextScreen::class.java)
             startActivityForResult(intent, 1000)
         }
+
+        calendarButton = findViewById(R.id.btn_calendar)
+        settingButton = findViewById(R.id.btn_setting)
+
+
+        calendarButton.setOnClickListener {
+            val intent = Intent(this, CalendarScreen::class.java)
+            startActivity(intent)
+        }
+
+        settingButton.setOnClickListener {
+            val intent = Intent(this, SettingScreen::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -49,10 +69,7 @@ class ChoiceScreen : AppCompatActivity() {
 
                 var oldId = pref.getInt("key_name", 0) // getting Integer
                 editor.putInt("key_name", oldId + 1).apply() // Storing integer
-                var newId = pref.getInt("key_name", 0) // getting Integer
-
-
-
+                var newId = pref.getInt("key_name", 0) 
 
                 choiceViewModel.send(
                     MyDaysEvent.AddNote(
