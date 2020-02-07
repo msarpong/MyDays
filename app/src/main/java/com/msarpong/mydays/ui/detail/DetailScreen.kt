@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -26,7 +27,11 @@ class DetailScreen : AppCompatActivity() {
     }
 
     private lateinit var detailViewModel: DetailScreenViewModel
-    private lateinit var notesText: TextView
+
+    private lateinit var detailTitle: TextView
+    private lateinit var detailBody: TextView
+    private lateinit var detailCategory: TextView
+    private lateinit var detailMood: ImageView
     private var noteId = 0
 
 
@@ -41,7 +46,11 @@ class DetailScreen : AppCompatActivity() {
 
 
     private fun setupViews() {
-        notesText = findViewById(R.id.textView)
+        detailTitle = findViewById(R.id.detail_title)
+        detailBody = findViewById(R.id.detail_body)
+        detailCategory = findViewById(R.id.detail_category)
+        detailMood = findViewById(R.id.detail_mood)
+
         noteId = intent.getStringExtra(BUNDLE_ID).toInt()
 
         detailViewModel.send(DetailEvent.Load, noteId)
@@ -57,7 +66,19 @@ class DetailScreen : AppCompatActivity() {
     }
 
     private fun showDatas(dayNotes: Notes) {
-        notesText.text = dayNotes.type
+        detailTitle.text = dayNotes.title
+        detailBody.text = dayNotes.text
+        detailCategory.text = dayNotes.type
+
+        var moodIcon = dayNotes.mood
+Log.d("MOOD", moodIcon)
+
+        when(moodIcon){
+             "smile" -> detailMood.setImageResource(R.drawable.ic_smile)
+             "sad" -> detailMood.setImageResource(R.drawable.ic_sad)
+             "confused" -> detailMood.setImageResource(R.drawable.ic_confused)
+        }
+
     }
 
     private fun showError(error: Throwable) {
