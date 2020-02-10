@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
+import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProviders
@@ -69,7 +70,7 @@ class ChoiceScreen : AppCompatActivity() {
 
                 var oldId = pref.getInt("key_name", 0) // getting Integer
                 editor.putInt("key_name", oldId + 1).apply() // Storing integer
-                var newId = pref.getInt("key_name", 0) 
+                var newId = pref.getInt("key_name", 0)
 
                 choiceViewModel.send(
                     MyDaysEvent.AddNote(
