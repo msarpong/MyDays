@@ -12,4 +12,7 @@ class MyDaysRepository(private val myDaysDao: MyDaysDao) {
 
     suspend fun deleteAll() = myDaysDao.deleteAllNotes()
 
+    suspend fun getNoteByDate(datetime: String) = myDaysDao.getNoteByDate(datetime)
+
+
 }

@@ -15,6 +15,9 @@ interface MyDaysDao {
     @Query("SELECT * from mydiary_notes WHERE id =:noteId")
     suspend fun getNoteById(noteId: Int): Notes
 
+    @Query("SELECT * from mydiary_notes WHERE datetime LIKE :datetime")
+    suspend fun getNoteByDate(datetime : String): List<Notes>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(note: Notes)
 

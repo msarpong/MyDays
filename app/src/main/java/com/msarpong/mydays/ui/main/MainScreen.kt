@@ -89,6 +89,7 @@ class MainScreen : AppCompatActivity() {
                 .plus(it.type).plus(", ")
                 .plus(it.text).plus(", ")
                 .plus(it.mood).plus(", ")
+                .plus(it.datetime).plus(", ")
             Log.i("ITEM: ", temp)
         }
     }
