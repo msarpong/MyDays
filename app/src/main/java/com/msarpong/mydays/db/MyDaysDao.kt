@@ -9,6 +9,9 @@ import androidx.room.Query
 @Dao
 interface MyDaysDao {
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(note: Notes)
+
     @Query("SELECT * from mydiary_notes ORDER by id DESC")
     suspend fun getAllNotes(): List<Notes>
 
@@ -18,11 +21,9 @@ interface MyDaysDao {
     @Query("SELECT * from mydiary_notes WHERE datetime LIKE :datetime")
     suspend fun getNoteByDate(datetime : String): List<Notes>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(note: Notes)
-
     @Query("DELETE FROM mydiary_notes")
     suspend fun deleteAllNotes()
 
-
+    @Query("DELETE FROM mydiary_notes WHERE id =:id")
+    suspend fun deleteAllNotesById(id: String)
 }
