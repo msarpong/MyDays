@@ -17,7 +17,6 @@ class SettingScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.setting_screen)
-
         setupView()
     }
 
