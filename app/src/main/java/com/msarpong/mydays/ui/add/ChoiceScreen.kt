@@ -75,13 +75,14 @@ class ChoiceScreen : AppCompatActivity() {
                 choiceViewModel.send(
                     MyDaysEvent.AddNote(
                         Notes(
-                            id = newId.toString(),
+                            id = newId.toInt(),
                             title = data.extras!!.getString("ADD_NOTE_TITLE").toString(),
                             type = data.extras!!.getString("ADD_NOTE_TYPE").toString(),
                             text = data.extras!!.getString("ADD_NOTE_TEXT").toString(),
                             mood = data.extras!!.getString("ADD_NOTE_MOOD").toString(),
                             image = data.extras!!.getString("ADD_NOTE_IMAGE").toString(),
-                            datetime = data.extras!!.getString("ADD_NOTE_DATETIME").toString()
+                            date_note = data.extras!!.getString("ADD_NOTE_DATE").toString(),
+                            hour_note = data.extras!!.getString("ADD_NOTE_HOUR").toString()
                         )
                     )
                 )

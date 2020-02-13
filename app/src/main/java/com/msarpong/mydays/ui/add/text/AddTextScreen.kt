@@ -55,7 +55,6 @@ class AddTextScreen : AppCompatActivity() {
             var selectedId = moodRB.checkedRadioButtonId
 //            var radioButton = findViewById<RadioButton>(selectedId)
 
-            val dateNote = dateToday()
             var mood = "default"
 
             var confused = R.id.mood_confused
@@ -73,20 +72,23 @@ class AddTextScreen : AppCompatActivity() {
             intent.putExtra("ADD_NOTE_TEXT", bodyET)
             intent.putExtra("ADD_NOTE_MOOD", mood)
             intent.putExtra("ADD_NOTE_IMAGE", "image")
-            intent.putExtra("ADD_NOTE_DATETIME", dateNote)
+            intent.putExtra("ADD_NOTE_DATE", getDate("dd-M-yyyy"))
+            intent.putExtra("ADD_NOTE_HOUR", getDate("hh:mm"))
 
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
     }
 
-    private fun dateToday(): String {
-        val pattern = "dd-M-yyyy hh:mm:ss"
+    private fun getDate(pattern: String): String {
+//        val pattern = "dd-M-yyyy hh:mm:ss"
         Locale.setDefault(Locale.ITALIAN)
         val current = SimpleDateFormat(pattern)
-        val today = current.format(Date())
-        return today
+        val todayDate = current.format(Date())
+        return todayDate
     }
+
+
 
 
 }

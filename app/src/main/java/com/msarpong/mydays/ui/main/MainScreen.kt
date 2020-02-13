@@ -82,16 +82,18 @@ class MainScreen : AppCompatActivity() {
 
     private fun showDatas(notes: List<Notes>) {
         mainAdapter.submitList(notes)
-
         notes.forEach {
-            var temp = it.id.plus(", ")
-                .plus(it.title).plus(",")
-                .plus(it.type).plus(", ")
-                .plus(it.text).plus(", ")
-                .plus(it.mood).plus(", ")
-                .plus(it.datetime).plus(", ")
-            Log.i("ITEM: ", temp)
+            Log.i("ITEM: ", it.id.toString())
         }
+//        notes.forEach {
+//            var temp = it.id.plus(", ")
+//                .plus(it.title).plus(",")
+//                .plus(it.type).plus(", ")
+//                .plus(it.text).plus(", ")
+//                .plus(it.mood).plus(", ")
+//                .plus(it.date_note).plus(", ")
+//            Log.i("ITEM: ", temp)
+//        }
     }
 
     private fun showError(error: Throwable) {

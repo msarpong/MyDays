@@ -37,7 +37,7 @@ class MainScreenViewModel(application: Application) : AndroidViewModel(applicati
     private fun updateNote() = viewModelScope.launch {
         notesData.postValue(repository.getAllNotes())
 //        state.value = MainState.Success(repository.getAllNotes())
-        state.value = MainState.Success(repository.getNoteByDate(dateToday()+"%"))
+        state.value = MainState.Success(repository.getNoteByDate(dateToday()))
     }
 
     fun send(event: MainEvent) {

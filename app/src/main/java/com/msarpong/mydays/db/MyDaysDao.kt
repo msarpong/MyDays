@@ -18,7 +18,7 @@ interface MyDaysDao {
     @Query("SELECT * from mydiary_notes WHERE id =:noteId")
     suspend fun getNoteById(noteId: Int): Notes
 
-    @Query("SELECT * from mydiary_notes WHERE datetime LIKE :datetime")
+    @Query("SELECT * from mydiary_notes WHERE date_note LIKE :datetime")
     suspend fun getNoteByDate(datetime : String): List<Notes>
 
     @Query("DELETE FROM mydiary_notes")

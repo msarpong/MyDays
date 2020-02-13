@@ -9,6 +9,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
         app:cardBackgroundColor="@color/colorBackgroundItem"
         app:cardCornerRadius="5dp">
 
@@ -16,9 +17,8 @@
             android:id="@+id/Tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="7dp"
             android:background="@color/colorBackgroundItem"
-            android:padding="12dp"
+            android:padding="10dp"
             android:text="Prova"
             android:textColor="@color/colorText"
             android:textSize="18sp" />

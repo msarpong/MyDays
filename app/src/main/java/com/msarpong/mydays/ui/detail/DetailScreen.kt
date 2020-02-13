@@ -19,7 +19,7 @@ private const val BUNDLE_ID: String = "BUNDLE_ID"
 class DetailScreen : AppCompatActivity() {
 
     companion object {
-        fun openDetail(startingActivity: Activity, gifId: String) {
+        fun openDetail(startingActivity: Activity, gifId: Int) {
             val intent = Intent(startingActivity, DetailScreen::class.java)
                 .putExtra(BUNDLE_ID, gifId)
             startingActivity.startActivity(intent)
@@ -51,7 +51,8 @@ class DetailScreen : AppCompatActivity() {
         detailCategory = findViewById(R.id.detail_category)
         detailMood = findViewById(R.id.detail_mood)
 
-        noteId = intent.getStringExtra(BUNDLE_ID).toInt()
+
+        noteId = intent.getIntExtra().toString().y
 
         detailViewModel.send(DetailEvent.Load, noteId)
     }
@@ -71,12 +72,12 @@ class DetailScreen : AppCompatActivity() {
         detailCategory.text = dayNotes.type
 
         var moodIcon = dayNotes.mood
-Log.d("MOOD", moodIcon)
+        Log.d("MOOD", moodIcon)
 
-        when(moodIcon){
-             "smile" -> detailMood.setImageResource(R.drawable.ic_smile)
-             "sad" -> detailMood.setImageResource(R.drawable.ic_sad)
-             "confused" -> detailMood.setImageResource(R.drawable.ic_confused)
+        when (moodIcon) {
+            "smile" -> detailMood.setImageResource(R.drawable.ic_smile)
+            "sad" -> detailMood.setImageResource(R.drawable.ic_sad)
+            "confused" -> detailMood.setImageResource(R.drawable.ic_confused)
         }
 
     }
