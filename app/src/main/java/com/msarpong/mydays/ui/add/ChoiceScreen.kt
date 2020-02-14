@@ -64,18 +64,9 @@ class ChoiceScreen : AppCompatActivity() {
         if (requestCode == 1000 && resultCode == Activity.RESULT_OK) {
             if (data != null) {
 
-                val pref =
-                    applicationContext.getSharedPreferences("MyPref", 0) // 0 - for private mode
-                val editor = pref.edit()
-
-                var oldId = pref.getInt("key_name", 0) // getting Integer
-                editor.putInt("key_name", oldId + 1).apply() // Storing integer
-                var newId = pref.getInt("key_name", 0)
-
                 choiceViewModel.send(
                     MyDaysEvent.AddNote(
                         Notes(
-//                            id = newId.toInt(),
                             title = data.extras!!.getString("ADD_NOTE_TITLE").toString(),
                             type = data.extras!!.getString("ADD_NOTE_TYPE").toString(),
                             text = data.extras!!.getString("ADD_NOTE_TEXT").toString(),
