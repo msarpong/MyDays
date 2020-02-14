@@ -50,11 +50,11 @@ class MainScreen : AppCompatActivity() {
 
     private fun setupView() {
         myTodayDate = findViewById(R.id.tv_title)
-        myTodayDate.setText(dateToday())
-
         addButton = findViewById(R.id.btn_add_new)
         calendarButton = findViewById(R.id.btn_calendar)
         settingButton = findViewById(R.id.btn_setting)
+
+        myTodayDate.setText(dateToday())
 
         addButton.setOnClickListener {
             val intent = Intent(this, ChoiceScreen::class.java)
@@ -85,15 +85,6 @@ class MainScreen : AppCompatActivity() {
         notes.forEach {
             Log.i("ITEM: ", it.id.toString())
         }
-//        notes.forEach {
-//            var temp = it.id.plus(", ")
-//                .plus(it.title).plus(",")
-//                .plus(it.type).plus(", ")
-//                .plus(it.text).plus(", ")
-//                .plus(it.mood).plus(", ")
-//                .plus(it.date_note).plus(", ")
-//            Log.i("ITEM: ", temp)
-//        }
     }
 
     private fun showError(error: Throwable) {

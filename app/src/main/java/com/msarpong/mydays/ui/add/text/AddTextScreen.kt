@@ -81,7 +81,6 @@ class AddTextScreen : AppCompatActivity() {
     }
 
     private fun getDate(pattern: String): String {
-//        val pattern = "dd-M-yyyy hh:mm:ss"
         Locale.setDefault(Locale.ITALIAN)
         val current = SimpleDateFormat(pattern)
         val todayDate = current.format(Date())

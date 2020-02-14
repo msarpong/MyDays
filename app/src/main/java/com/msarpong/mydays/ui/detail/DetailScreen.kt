@@ -51,8 +51,7 @@ class DetailScreen : AppCompatActivity() {
         detailCategory = findViewById(R.id.detail_category)
         detailMood = findViewById(R.id.detail_mood)
 
-
-        noteId = intent.getIntExtra().toString().y
+        noteId = intent!!.getIntExtra(BUNDLE_ID,1)
 
         detailViewModel.send(DetailEvent.Load, noteId)
     }
@@ -86,3 +85,5 @@ class DetailScreen : AppCompatActivity() {
         Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show()
     }
 }
+
+
