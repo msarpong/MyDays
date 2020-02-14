@@ -29,7 +29,6 @@ class CalendarScreen : AppCompatActivity() {
 
         calendarView.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
             val Date = dayOfMonth.toString() + "-" + (month + 1) + "-" + year
-//            dateView.setText(Date)
             Log.d("Date listener", Date)
             Toast.makeText(this, Date, Toast.LENGTH_LONG).show()
         })
