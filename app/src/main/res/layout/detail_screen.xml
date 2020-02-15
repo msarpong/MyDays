@@ -19,8 +19,8 @@
         android:text="22, Gennaio 2020"
         android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_header" />
 
@@ -44,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="3">
 
 
             <TextView
@@ -62,10 +62,10 @@
                 android:layout_width="22dp"
                 android:layout_height="22dp"
                 android:layout_gravity="right"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:cropToPadding="true"
                 android:foregroundGravity="right"
-                android:paddingStart="145dp"
+                android:paddingStart="14dp"
                 app:srcCompat="@drawable/ic_smile" />
 
 

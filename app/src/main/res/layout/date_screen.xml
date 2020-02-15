@@ -5,17 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".ui.calendar.CalendarScreen">
+    tools:context=".ui.detailDate.DateScreen">
+
 
     <include
         android:id="@+id/card_header"
         layout="@layout/titlebar" />
 
+
     <TextView
-        android:id="@+id/tv_calendar"
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="25dp"
         android:text="22, Gennaio 2020"
         android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"
@@ -23,24 +25,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_header" />
 
-
-    <androidx.cardview.widget.CardView
+    <androidx.recyclerview.widget.RecyclerView
+        android:padding="10dp"
+        android:id="@+id/recyclerView_home"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_height="0dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        app:cardBackgroundColor="@color/colorBackgroundItem"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_calendar">
-
-        <CalendarView
-            android:id="@+id/calendar_diary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/CalenderViewCustom" />
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

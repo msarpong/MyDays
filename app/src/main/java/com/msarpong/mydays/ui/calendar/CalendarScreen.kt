@@ -1,5 +1,6 @@
 package com.msarpong.mydays.ui.calendar
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.CalendarView
@@ -8,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.msarpong.mydays.R
+import com.msarpong.mydays.ui.detailDate.DateScreen
 
 
 class CalendarScreen : AppCompatActivity() {
@@ -29,8 +31,11 @@ class CalendarScreen : AppCompatActivity() {
 
         calendarView.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
             val Date = dayOfMonth.toString() + "-" + (month + 1) + "-" + year
-            Log.d("Date listener", Date)
-            Toast.makeText(this, Date, Toast.LENGTH_LONG).show()
+            val intent = Intent(this, DateScreen::class.java)
+            intent.putExtra("Date",Date)
+            startActivity(intent)
+//            Log.d("Date listener", Date)
+//            Toast.makeText(this, Date, Toast.LENGTH_LONG).show()
         })
     }
 

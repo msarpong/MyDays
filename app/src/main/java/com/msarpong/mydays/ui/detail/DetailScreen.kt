@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.calendar.CalendarScreen
+import com.msarpong.mydays.ui.detailDate.DateEvent
 import com.msarpong.mydays.ui.main.MainState
 import com.msarpong.mydays.ui.setting.SettingScreen
 import org.msarpong.mydays.Db.Notes
