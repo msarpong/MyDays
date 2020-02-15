@@ -3,19 +3,19 @@ package com.msarpong.mydays.ui.add.text
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.RadioGroup
+import androidx.appcompat.app.AppCompatActivity
 import com.msarpong.mydays.R
-import com.msarpong.mydays.ui.add.ChoiceScreen
 import com.msarpong.mydays.ui.calendar.CalendarScreen
-import com.msarpong.mydays.ui.main.MainScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class AddTextScreen : AppCompatActivity() {
 
@@ -27,6 +27,7 @@ class AddTextScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_text_screen)
+
         setupView()
     }
 
@@ -53,15 +54,13 @@ class AddTextScreen : AppCompatActivity() {
             }
 
             var selectedId = moodRB.checkedRadioButtonId
-//            var radioButton = findViewById<RadioButton>(selectedId)
-
             var mood = "default"
 
             var confused = R.id.mood_confused
             var sad = R.id.mood_sad
             var smile = R.id.mood_smile
 
-            when(selectedId){
+            when (selectedId) {
                 confused -> mood = "sad"
                 sad -> mood = "sad"
                 smile -> mood = "smile"
@@ -86,8 +85,4 @@ class AddTextScreen : AppCompatActivity() {
         val todayDate = current.format(Date())
         return todayDate
     }
-
-
-
-
 }

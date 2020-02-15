@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +28,12 @@ class MainAdapter :
         holder.diaryTitle.setOnClickListener {
             DetailScreen.openDetail(holder.diaryTitle.context as Activity, diary.id)
         }
+        holder.diaryTitle.setOnLongClickListener{
+            Toast.makeText(holder.diaryTitle.context, "Long click detected", Toast.LENGTH_SHORT).show()
+            true
+        }
+
+
     }
 }
 
