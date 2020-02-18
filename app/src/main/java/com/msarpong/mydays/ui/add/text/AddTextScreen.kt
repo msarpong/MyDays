@@ -1,10 +1,9 @@
 package com.msarpong.mydays.ui.add.text
 
 import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -27,7 +26,6 @@ class AddTextScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_text_screen)
-
         setupView()
     }
 
@@ -71,7 +69,7 @@ class AddTextScreen : AppCompatActivity() {
             intent.putExtra("ADD_NOTE_TEXT", bodyET)
             intent.putExtra("ADD_NOTE_MOOD", mood)
             intent.putExtra("ADD_NOTE_IMAGE", "image")
-            intent.putExtra("ADD_NOTE_DATE", getDate("dd-M-yyyy"))
+            intent.putExtra("ADD_NOTE_DATE", getDate("dd/M/yyyy"))
             intent.putExtra("ADD_NOTE_HOUR", getDate("hh:mm"))
 
             setResult(Activity.RESULT_OK, intent)
@@ -85,4 +83,7 @@ class AddTextScreen : AppCompatActivity() {
         val todayDate = current.format(Date())
         return todayDate
     }
+
+
+
 }

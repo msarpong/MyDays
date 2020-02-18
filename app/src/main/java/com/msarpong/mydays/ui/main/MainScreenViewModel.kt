@@ -50,7 +50,7 @@ class MainScreenViewModel(application: Application) : AndroidViewModel(applicati
     }
 
     private fun dateToday(): String {
-        val pattern = "dd-M-yyyy"
+        val pattern = "dd/M/yyyy"
         Locale.setDefault(Locale.ITALIAN)
         val current = SimpleDateFormat(pattern)
         val today = current.format(Date())

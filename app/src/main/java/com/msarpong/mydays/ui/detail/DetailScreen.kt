@@ -17,6 +17,7 @@ import com.msarpong.mydays.ui.detailDate.DateEvent
 import com.msarpong.mydays.ui.main.MainState
 import com.msarpong.mydays.ui.setting.SettingScreen
 import org.msarpong.mydays.Db.Notes
+import java.text.SimpleDateFormat
 
 private const val BUNDLE_ID: String = "BUNDLE_ID"
 
@@ -90,7 +91,8 @@ class DetailScreen : AppCompatActivity() {
     private fun showDatas(dayNotes: Notes) {
         detailTitle.text = dayNotes.title
         detailBody.text = dayNotes.text
-        detailDate.text = dayNotes.date_note
+        detailDate.text = convertDate(dayNotes.date_note)
+//        detailDate.text = dayNotes.date_note
 
         var moodIcon = dayNotes.mood
         Log.d("MOOD", moodIcon)
@@ -100,8 +102,23 @@ class DetailScreen : AppCompatActivity() {
             "sad" -> detailMood.setImageResource(R.drawable.ic_sad)
             "confused" -> detailMood.setImageResource(R.drawable.ic_confused)
         }
+    }
+
+    private fun convertDate(oldDateString: String): String {
+
+        val OLD_FORMAT = "dd/MM/yyyy"
+        val NEW_FORMAT = "dd MMMM yyyy"
+
+        val newDateString: String
+
+        val sdf = SimpleDateFormat(OLD_FORMAT)
+        val d = sdf.parse(oldDateString)
+        sdf.applyPattern(NEW_FORMAT)
+        newDateString = sdf.format(d)
+        return newDateString
 
     }
+
 
     private fun showError(error: Throwable) {
         Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show()
