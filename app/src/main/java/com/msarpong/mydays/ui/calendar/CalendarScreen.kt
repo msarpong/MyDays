@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.detailDate.DateScreen
 
-
 class CalendarScreen : AppCompatActivity() {
 
     private lateinit var titleText: TextView
@@ -20,7 +19,6 @@ class CalendarScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendar_screen)
-
         setupView()
     }
 
@@ -34,8 +32,6 @@ class CalendarScreen : AppCompatActivity() {
             val intent = Intent(this, DateScreen::class.java)
             intent.putExtra("Date",Date)
             startActivity(intent)
-//            Log.d("Date listener", Date)
-//            Toast.makeText(this, Date, Toast.LENGTH_LONG).show()
         })
     }
 

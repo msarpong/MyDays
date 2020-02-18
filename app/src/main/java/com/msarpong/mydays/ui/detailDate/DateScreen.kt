@@ -82,5 +82,4 @@ class DateScreen : AppCompatActivity() {
     private fun showError(error: Throwable) {
         Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show()
     }
-
 }

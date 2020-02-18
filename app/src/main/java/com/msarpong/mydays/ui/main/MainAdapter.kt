@@ -32,8 +32,6 @@ class MainAdapter :
             Toast.makeText(holder.diaryTitle.context, "Long click detected", Toast.LENGTH_SHORT).show()
             true
         }
-
-
     }
 }
 
