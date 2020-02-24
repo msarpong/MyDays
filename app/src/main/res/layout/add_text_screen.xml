@@ -16,7 +16,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimaryText"
-        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_header"
@@ -42,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_calendar">
@@ -50,12 +50,14 @@
         <EditText
             android:id="@+id/editTitle"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:autofillHints="@string/add_hint_title"
+            android:layout_height="wrap_content"
             android:background="@drawable/et_style"
             android:ems="10"
             android:hint="@string/add_hint_title"
             android:inputType="textCapSentences|textNoSuggestions"
+            android:padding="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:textColor="@color/colorPrimaryText" />
 
         <EditText
@@ -63,7 +65,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:autofillHints="@string/add_hint_title"
             android:background="@drawable/et_style"
             android:ems="10"
             android:gravity="top"
@@ -71,75 +72,79 @@
             android:inputType="textCapSentences|textNoSuggestions|textMultiLine"
             android:maxLines="8"
             android:minLines="8"
+            android:padding="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:textColor="@color/colorPrimaryText" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/btn_save"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.120000005">
 
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center|center_horizontal"
-            android:layout_weight="1"
+            android:layout_marginTop="20dp"
             app:cardBackgroundColor="@color/colorBackgroundItem"
             app:cardCornerRadius="5dp">
 
-            <TextView
-                android:id="@+id/tv_mood"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:foregroundGravity="center_vertical"
-                android:gravity="center_vertical"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="@string/mood"
-                android:textColor="@color/colorPrimaryText" />
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
 
-            <RadioGroup
-                android:id="@+id/radio_mood"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_margin="10dp"
-                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tv_mood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:foregroundGravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="@string/mood"
+                    android:textColor="@color/colorPrimaryText" />
 
-                <RadioButton
-                    android:id="@+id/mood_smile"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="15dp"
-                    android:background="@drawable/ic_smile"
-                    android:button="@null" />
+                <RadioGroup
+                    android:id="@+id/radio_mood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
 
-                <RadioButton
-                    android:id="@+id/mood_confused"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="15dp"
-                    android:background="@drawable/ic_confused"
-                    android:button="@null" />
+                    <RadioButton
+                        android:id="@+id/mood_smile"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="15dp"
+                        android:background="@drawable/ic_smile"
+                        android:button="@null" />
 
-                <RadioButton
-                    android:id="@+id/mood_sad"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="15dp"
-                    android:background="@drawable/ic_sad"
-                    android:button="@null" />
+                    <RadioButton
+                        android:id="@+id/mood_confused"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="15dp"
+                        android:background="@drawable/ic_confused"
+                        android:button="@null" />
 
-            </RadioGroup>
+                    <RadioButton
+                        android:id="@+id/mood_sad"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginStart="15dp"
+                        android:background="@drawable/ic_sad"
+                        android:button="@null" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
 
         </androidx.cardview.widget.CardView>
-
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
