@@ -15,39 +15,33 @@
         android:id="@+id/tv_calendar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="1dp"
-        android:text="Add"
         android:textColor="@color/colorPrimaryText"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_header" />
+        app:layout_constraintTop_toBottomOf="@+id/card_header"
+        tools:text="Add" />
 
     <Button
         android:id="@+id/btn_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/round_shape"
-        android:paddingLeft="50dp"
-        android:paddingRight="50dp"
-        android:text="Save"
+        android:textAllCaps="false"
         android:textColor="@color/colorPrimaryText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.931" />
+        app:layout_constraintVertical_bias="0.931"
+        tools:text="Save" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_calendar">
@@ -62,9 +56,7 @@
             android:ems="10"
             android:hint="@string/add_hint_title"
             android:inputType="textCapSentences|textNoSuggestions"
-            android:padding="12dp"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="20sp" />
+            android:textColor="@color/colorPrimaryText" />
 
         <EditText
             android:id="@+id/editBody"
@@ -79,9 +71,7 @@
             android:inputType="textCapSentences|textNoSuggestions|textMultiLine"
             android:maxLines="8"
             android:minLines="8"
-            android:padding="12dp"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="20sp" />
+            android:textColor="@color/colorPrimaryText" />
     </LinearLayout>
 
     <LinearLayout
@@ -97,7 +87,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center|center_horizontal"
-            android:layout_margin="10dp"
             android:layout_weight="1"
             app:cardBackgroundColor="@color/colorBackgroundItem"
             app:cardCornerRadius="5dp">
@@ -111,41 +100,41 @@
                 android:foregroundGravity="center_vertical"
                 android:gravity="center_vertical"
                 android:paddingStart="10dp"
-                android:text="Mood:"
-                android:textColor="@color/colorPrimaryText"
-                android:textSize="18dp" />
+                android:paddingEnd="10dp"
+                android:text="@string/mood"
+                android:textColor="@color/colorPrimaryText" />
 
             <RadioGroup
                 android:id="@+id/radio_mood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:layout_margin="10dp"
                 android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/mood_smile"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginStart="15dp"
                     android:background="@drawable/ic_smile"
                     android:button="@null" />
 
                 <RadioButton
                     android:id="@+id/mood_confused"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginStart="15dp"
                     android:background="@drawable/ic_confused"
                     android:button="@null" />
 
                 <RadioButton
                     android:id="@+id/mood_sad"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginStart="15dp"
                     android:background="@drawable/ic_sad"
-                    android:button="@null"/>
+                    android:button="@null" />
 
             </RadioGroup>
 

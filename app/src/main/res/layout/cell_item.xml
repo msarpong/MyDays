@@ -3,25 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/recycler_card"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         app:cardBackgroundColor="@color/colorBackgroundItem"
+        app:cardElevation="5dp"
+        app:contentPadding="10dp"
         app:cardCornerRadius="5dp">
 
-        <TextView
-            android:id="@+id/Tv_title"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBackgroundItem"
-            android:padding="10dp"
-            android:text="Prova"
-            android:textColor="@color/colorText"
-            android:textSize="18sp" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/recycler_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBackgroundItem"
+                android:textColor="@color/colorText"
+                tools:text="08:02 12 Feb" />
+
+            <TextView
+                android:id="@+id/recycler_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBackgroundItem"
+                android:textColor="@color/colorText"
+                tools:text="Sport" />
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 </LinearLayout>

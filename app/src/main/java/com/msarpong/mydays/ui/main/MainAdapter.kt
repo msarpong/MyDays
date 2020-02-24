@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -23,12 +24,15 @@ class MainAdapter :
     }
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
+
         val diary = getItem(position)
+        val diaryDateString = diary.hour_note +' '+ diary.date_note
         holder.diaryTitle.text = diary.title
-        holder.diaryTitle.setOnClickListener {
+        holder.diaryDate.text = diaryDateString
+        holder.diaryCard.setOnClickListener {
             DetailScreen.openDetail(holder.diaryTitle.context as Activity, diary.id)
         }
-        holder.diaryTitle.setOnLongClickListener{
+        holder.diaryCard.setOnLongClickListener{
             Toast.makeText(holder.diaryTitle.context, "Long click detected", Toast.LENGTH_SHORT).show()
             true
         }
@@ -36,7 +40,9 @@ class MainAdapter :
 }
 
 class NotesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val diaryTitle = view.findViewById<TextView>(R.id.Tv_title)
+    val diaryTitle = view.findViewById<TextView>(R.id.recycler_title)
+    val diaryDate = view.findViewById<TextView>(R.id.recycler_date)
+    val diaryCard = view.findViewById<CardView>(R.id.recycler_card)
 }
 
 class NotesDiffUtil : DiffUtil.ItemCallback<Notes>() {
