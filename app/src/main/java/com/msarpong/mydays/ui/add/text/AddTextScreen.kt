@@ -3,13 +3,13 @@ package com.msarpong.mydays.ui.add.text
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.msarpong.mydays.R
+import com.msarpong.mydays.extensions.hideKeyboard
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
 import java.text.SimpleDateFormat
@@ -27,6 +27,7 @@ class AddTextScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_text_screen)
         setupView()
+
     }
 
     private fun setupView() {
@@ -34,17 +35,18 @@ class AddTextScreen : AppCompatActivity() {
         saveBtn = findViewById(R.id.btn_save)
         saveBtn.setOnClickListener {
             val titleET = findViewById<EditText>(R.id.editTitle).text.toString()
-            val bodyET = findViewById<EditText>(R.id.editBody).text.toString()
+            val bodyET = findViewById<EditText>(R.id.editBody).toString()
             val moodRB = findViewById<RadioGroup>(R.id.radio_mood)
 
             calendarButton = findViewById(R.id.btn_calendar)
             settingButton = findViewById(R.id.btn_setting)
 
-
             calendarButton.setOnClickListener {
                 val intent = Intent(this, CalendarScreen::class.java)
                 startActivity(intent)
             }
+
+            this.hideKeyboard()
 
             settingButton.setOnClickListener {
                 val intent = Intent(this, SettingScreen::class.java)
@@ -83,7 +85,6 @@ class AddTextScreen : AppCompatActivity() {
         val todayDate = current.format(Date())
         return todayDate
     }
-
 
 
 }

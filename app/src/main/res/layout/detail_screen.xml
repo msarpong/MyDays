@@ -11,76 +11,64 @@
         android:id="@+id/card_header"
         layout="@layout/titlebar" />
 
-    <TextView
-        android:id="@+id/detail_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/lato"
-        android:text="22, Gennaio 2020"
-        android:textColor="@color/colorPrimaryText"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_header" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/colorBackgroundItem"
         app:cardCornerRadius="5dp"
         app:contentPadding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_title"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/card_header">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="3">
 
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:id="@+id/detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryText"
+                tools:text="Title" />
 
             <TextView
                 android:id="@+id/detail_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Date"
+                android:layout_below="@+id/detail_title"
                 android:textColor="@color/colorPrimaryText"
-                android:textSize="18sp"
-                android:textStyle="normal" />
+                tools:text="Date" />
 
             <ImageView
                 android:id="@+id/detail_mood"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
+                android:layout_below="@+id/detail_title"
+                android:layout_alignParentRight="true"
                 android:layout_gravity="right"
-                android:layout_weight="2"
+                android:layout_toEndOf="@id/detail_date"
                 android:cropToPadding="true"
-                android:foregroundGravity="right"
-                android:paddingStart="14dp"
+                android:scaleType="fitEnd"
                 app:srcCompat="@drawable/ic_smile" />
 
+            <TextView
+                android:id="@+id/detail_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:layout_below="@+id/detail_date"
+                android:textColor="@color/colorPrimaryText"
+                tools:text="Body" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/detail_body"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/detail_date"
-            android:paddingTop="35dp"
-            android:text="TextView"
-            android:textColor="@color/colorPrimaryText"
-            android:textSize="18sp" />
+
     </androidx.cardview.widget.CardView>
 
 

@@ -11,29 +11,17 @@
         android:id="@+id/card_header"
         layout="@layout/titlebar" />
 
-    <TextView
-        android:id="@+id/tv_calendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="22, Gennaio 2020"
-        android:textColor="@color/colorPrimaryText"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_header" />
-
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         app:cardBackgroundColor="@color/colorBackgroundItem"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_calendar">
+        app:layout_constraintTop_toBottomOf="@+id/card_header">
 
         <CalendarView
             android:id="@+id/calendar_diary"

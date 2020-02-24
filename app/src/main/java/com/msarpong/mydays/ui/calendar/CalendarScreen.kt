@@ -13,7 +13,6 @@ import com.msarpong.mydays.ui.detailDate.DateScreen
 
 class CalendarScreen : AppCompatActivity() {
 
-    private lateinit var titleText: TextView
     private lateinit var calendarView: CalendarView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,9 +23,6 @@ class CalendarScreen : AppCompatActivity() {
 
     private fun setupView() {
         calendarView = findViewById(R.id.calendar_diary)
-        titleText = findViewById(R.id.tv_calendar)
-        titleText.setText("Calendar")
-
         calendarView.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
             val Date = dayOfMonth.toString() + "/" + (month + 1) + "/" + year
             val intent = Intent(this, DateScreen::class.java)
