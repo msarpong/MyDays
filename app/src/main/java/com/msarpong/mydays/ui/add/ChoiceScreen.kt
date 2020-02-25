@@ -73,7 +73,8 @@ class ChoiceScreen : AppCompatActivity() {
                             mood = data.extras!!.getString("ADD_NOTE_MOOD").toString(),
                             image = data.extras!!.getString("ADD_NOTE_IMAGE").toString(),
                             date_note = data.extras!!.getString("ADD_NOTE_DATE").toString(),
-                            hour_note = data.extras!!.getString("ADD_NOTE_HOUR").toString()
+                            hour_note = data.extras!!.getString("ADD_NOTE_HOUR").toString(),
+                            datetime = data.extras!!.getString("ADD_NOTE_DATETIME").toString()
                         )
                     )
                 )

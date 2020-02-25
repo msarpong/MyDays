@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
+import com.msarpong.mydays.utils.getDate
 
 import java.util.*
 
@@ -50,7 +51,7 @@ class MainScreen : AppCompatActivity() {
         calendarButton = findViewById(R.id.btn_calendar)
         settingButton = findViewById(R.id.btn_setting)
 
-        myTodayDate.setText(dateToday())
+        myTodayDate.setText(getDate("EEEE, dd MMMM yyyy"))
 
         addButton.setOnClickListener {
             val intent = Intent(this, ChoiceScreen::class.java)
@@ -86,18 +87,4 @@ class MainScreen : AppCompatActivity() {
     private fun showError(error: Throwable) {
         Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show()
     }
-
-
-    private fun dateToday(): String {
-        val pattern = "EEEE, dd MMMM yyyy"
-        Locale.setDefault(Locale.ITALIAN)
-        val current = SimpleDateFormat(pattern)
-        val today = current.format(Date())
-        return capitalize(today)
-    }
-
-    private fun capitalize(line: String): String {
-        return Character.toUpperCase(line[0]) + line.substring(1)
-    }
-
 }

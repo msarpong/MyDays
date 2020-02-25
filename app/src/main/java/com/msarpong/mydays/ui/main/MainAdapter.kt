@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.detail.DetailScreen
+import com.msarpong.mydays.utils.formatDateTime
 import org.msarpong.mydays.Db.Notes
 
 class MainAdapter :
@@ -26,14 +27,14 @@ class MainAdapter :
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
 
         val diary = getItem(position)
-        val diaryDateString = diary.hour_note +' '+ diary.date_note
         holder.diaryTitle.text = diary.title
-        holder.diaryDate.text = diaryDateString
+        holder.diaryDate.text = diary.datetime.formatDateTime("yyyy-MM-dd HH:mm", "H:mm")
         holder.diaryCard.setOnClickListener {
             DetailScreen.openDetail(holder.diaryTitle.context as Activity, diary.id)
         }
-        holder.diaryCard.setOnLongClickListener{
-            Toast.makeText(holder.diaryTitle.context, "Long click detected", Toast.LENGTH_SHORT).show()
+        holder.diaryCard.setOnLongClickListener {
+            Toast.makeText(holder.diaryTitle.context, "Long click detected", Toast.LENGTH_SHORT)
+                .show()
             true
         }
     }
@@ -53,5 +54,4 @@ class NotesDiffUtil : DiffUtil.ItemCallback<Notes>() {
     override fun areContentsTheSame(oldItem: Notes, newItem: Notes): Boolean {
         return oldItem == newItem
     }
-
 }

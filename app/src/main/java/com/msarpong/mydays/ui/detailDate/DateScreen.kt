@@ -2,6 +2,7 @@ package com.msarpong.mydays.ui.detailDate
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils.replace
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.TextView
@@ -15,6 +16,8 @@ import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.main.MainAdapter
 import com.msarpong.mydays.ui.setting.SettingScreen
+import com.msarpong.mydays.utils.convertDate
+import com.msarpong.mydays.utils.formatDateTime
 import org.msarpong.mydays.Db.Notes
 
 
@@ -49,7 +52,7 @@ class DateScreen : AppCompatActivity() {
         settingButton = findViewById(R.id.btn_setting)
 
         dateViewModel.send(DateEvent.Load, dateNote)
-        myTodayDate.setText(dateNote)
+        myTodayDate.setText(convertDate(dateNote))
 
         calendarButton.setOnClickListener {
             val intent = Intent(this, CalendarScreen::class.java)
@@ -75,7 +78,7 @@ class DateScreen : AppCompatActivity() {
     private fun showDatas(notes: List<Notes>) {
         mainAdapter.submitList(notes)
         notes.forEach {
-            Log.i("DATE_DETAIL: ", it.id.toString())
+            Log.i("DATE_DETAIL: ", it.date_note)
         }
     }
 

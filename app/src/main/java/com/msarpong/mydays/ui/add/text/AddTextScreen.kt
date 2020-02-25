@@ -9,11 +9,9 @@ import android.widget.ImageButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.msarpong.mydays.R
-import com.msarpong.mydays.extensions.hideKeyboard
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
-import java.text.SimpleDateFormat
-import java.util.*
+import com.msarpong.mydays.utils.getDate
 
 
 class AddTextScreen : AppCompatActivity() {
@@ -27,7 +25,6 @@ class AddTextScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_text_screen)
         setupView()
-
     }
 
     private fun setupView() {
@@ -35,7 +32,7 @@ class AddTextScreen : AppCompatActivity() {
         saveBtn = findViewById(R.id.btn_save)
         saveBtn.setOnClickListener {
             val titleET = findViewById<EditText>(R.id.editTitle).text.toString()
-            val bodyET = findViewById<EditText>(R.id.editBody).toString()
+            val bodyET = findViewById<EditText>(R.id.editBody).text.toString()
             val moodRB = findViewById<RadioGroup>(R.id.radio_mood)
 
             calendarButton = findViewById(R.id.btn_calendar)
@@ -45,8 +42,6 @@ class AddTextScreen : AppCompatActivity() {
                 val intent = Intent(this, CalendarScreen::class.java)
                 startActivity(intent)
             }
-
-            this.hideKeyboard()
 
             settingButton.setOnClickListener {
                 val intent = Intent(this, SettingScreen::class.java)
@@ -73,17 +68,11 @@ class AddTextScreen : AppCompatActivity() {
             intent.putExtra("ADD_NOTE_IMAGE", "image")
             intent.putExtra("ADD_NOTE_DATE", getDate("dd/M/yyyy"))
             intent.putExtra("ADD_NOTE_HOUR", getDate("hh:mm"))
+            intent.putExtra("ADD_NOTE_DATETIME", getDate("yyyy-MM-dd HH:mm"))
 
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
-    }
-
-    private fun getDate(pattern: String): String {
-        Locale.setDefault(Locale.ITALIAN)
-        val current = SimpleDateFormat(pattern)
-        val todayDate = current.format(Date())
-        return todayDate
     }
 
 

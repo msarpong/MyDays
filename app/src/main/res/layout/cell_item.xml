@@ -36,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorBackgroundItem"
                 android:textColor="@color/colorText"
+                android:textStyle="bold"
                 tools:text="Sport" />
         </LinearLayout>
 

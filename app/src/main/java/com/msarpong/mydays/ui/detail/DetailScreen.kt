@@ -16,6 +16,7 @@ import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.detailDate.DateEvent
 import com.msarpong.mydays.ui.main.MainState
 import com.msarpong.mydays.ui.setting.SettingScreen
+import com.msarpong.mydays.utils.formatDateTime
 import org.msarpong.mydays.Db.Notes
 import java.text.SimpleDateFormat
 
@@ -91,7 +92,8 @@ class DetailScreen : AppCompatActivity() {
     private fun showDatas(dayNotes: Notes) {
         detailTitle.text = dayNotes.title
         detailBody.text = dayNotes.text
-        detailDate.text = convertDate(dayNotes.date_note)
+        detailDate.text = dayNotes.datetime.formatDateTime("yyyy-MM-dd HH:mm", "dd-M-yyyy HH:mm")
+//        detailDate.text = convertDate(dayNotes.date_note)
 //        detailDate.text = dayNotes.date_note
 
         var moodIcon = dayNotes.mood
@@ -103,22 +105,6 @@ class DetailScreen : AppCompatActivity() {
             "confused" -> detailMood.setImageResource(R.drawable.ic_confused)
         }
     }
-
-    private fun convertDate(oldDateString: String): String {
-
-        val OLD_FORMAT = "dd/MM/yyyy"
-        val NEW_FORMAT = "dd MMMM yyyy"
-
-        val newDateString: String
-
-        val sdf = SimpleDateFormat(OLD_FORMAT)
-        val d = sdf.parse(oldDateString)
-        sdf.applyPattern(NEW_FORMAT)
-        newDateString = sdf.format(d)
-        return newDateString
-
-    }
-
 
     private fun showError(error: Throwable) {
         Toast.makeText(this, "Error!", Toast.LENGTH_SHORT).show()

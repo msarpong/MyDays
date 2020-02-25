@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.msarpong.mydays.utils.getDate
 import kotlinx.coroutines.launch
 import org.msarpong.mydays.Db.MyDaysRepository
 import org.msarpong.mydays.Db.MyDaysRoomDatabase
@@ -31,12 +32,11 @@ class MainScreenViewModel(application: Application) : AndroidViewModel(applicati
         val dao = MyDaysRoomDatabase.getDatabase(application).mydaysDao()
         repository = MyDaysRepository(dao)
         updateNote()
-        dateToday()
     }
 
     private fun updateNote() = viewModelScope.launch {
         notesData.postValue(repository.getAllNotes())
-        state.value = MainState.Success(repository.getNoteByDate(dateToday()))
+        state.value = MainState.Success(repository.getNoteByDate(getDate("dd/M/yyyy")))
     }
 
     fun send(event: MainEvent) {
@@ -48,14 +48,4 @@ class MainScreenViewModel(application: Application) : AndroidViewModel(applicati
     private fun loadContent() {
         state.value = MainState.Success(notesData.value!!.toList())
     }
-
-    private fun dateToday(): String {
-        val pattern = "dd/M/yyyy"
-        Locale.setDefault(Locale.ITALIAN)
-        val current = SimpleDateFormat(pattern)
-        val today = current.format(Date())
-        Log.d("DATETIME", today)
-        return today
-    }
-
 }
