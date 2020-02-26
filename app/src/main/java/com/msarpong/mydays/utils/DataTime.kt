@@ -25,7 +25,7 @@ fun convertDate(
 ): String {
     Locale.setDefault(Locale.ITALIAN)
 
-     val newDateString: String
+    val newDateString: String
 
     val sdf = SimpleDateFormat(oldPattern)
     val d = sdf.parse(DateString)
@@ -38,3 +38,4 @@ fun convertDate(
 fun capitalize(line: String): String {
     return Character.toUpperCase(line[0]) + line.substring(1)
 }
+
