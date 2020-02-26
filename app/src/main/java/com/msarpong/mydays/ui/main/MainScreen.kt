@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.github.vipulasri.timelineview.TimelineView
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
 import com.msarpong.mydays.utils.getDate
@@ -66,6 +67,8 @@ class MainScreen : AppCompatActivity() {
             val intent = Intent(this, SettingScreen::class.java)
             startActivity(intent)
         }
+
+
     }
 
     private fun setupObserver() {

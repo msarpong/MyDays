@@ -10,10 +10,12 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.github.vipulasri.timelineview.TimelineView
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.detail.DetailScreen
 import com.msarpong.mydays.utils.formatDateTime
 import org.msarpong.mydays.Db.Notes
+
 
 class MainAdapter :
     ListAdapter<Notes, NotesViewHolder>(NotesDiffUtil()) {
@@ -21,7 +23,7 @@ class MainAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val cellForRow = layoutInflater.inflate(R.layout.cell_item, parent, false)
-        return NotesViewHolder(cellForRow)
+        return NotesViewHolder(cellForRow, viewType)
     }
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
@@ -40,7 +42,14 @@ class MainAdapter :
     }
 }
 
-class NotesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class NotesViewHolder(view: View, viewType: Int) : RecyclerView.ViewHolder(view) {
+    var mTimelineView: TimelineView
+
+    init {
+        mTimelineView = itemView.findViewById<View>(R.id.timeline) as TimelineView
+        mTimelineView.initLine(viewType)
+    }
+
     val diaryTitle = view.findViewById<TextView>(R.id.recycler_title)
     val diaryDate = view.findViewById<TextView>(R.id.recycler_date)
     val diaryCard = view.findViewById<CardView>(R.id.recycler_card)
