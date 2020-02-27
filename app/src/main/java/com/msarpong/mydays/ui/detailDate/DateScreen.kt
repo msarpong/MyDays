@@ -1,6 +1,8 @@
 package com.msarpong.mydays.ui.detailDate
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils.replace
 import android.util.Log
@@ -20,20 +22,35 @@ import com.msarpong.mydays.utils.convertDate
 import com.msarpong.mydays.utils.formatDateTime
 import org.msarpong.mydays.Db.Notes
 
+const val SHARED_PREFS_SETTING = "Settings_prefs"
+const val SHARED_PREFS_THEME = "Theme"
+const val DARK_MODE = "DARK"
+const val LIGHT_MODE = "LIGHT"
 
 class DateScreen : AppCompatActivity() {
 
+    private lateinit var sharedPrefs: SharedPreferences
+
     private lateinit var dateViewModel: DateScreenViewModel
+
     private lateinit var myTodayDate: TextView
     private lateinit var calendarButton: ImageButton
     private lateinit var settingButton: ImageButton
-    private lateinit var mainAdapter: MainAdapter
     private lateinit var recyclerView_home: RecyclerView
+
+    private lateinit var mainAdapter: MainAdapter
 
     private lateinit var dateNote: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPrefs = getSharedPreferences(SHARED_PREFS_SETTING, Context.MODE_PRIVATE)
+        val myTheme = sharedPrefs.getString(SHARED_PREFS_THEME, LIGHT_MODE)
+        if (myTheme == DARK_MODE) {
+            setTheme(R.style.DarkTheme);
+        } else if (myTheme == LIGHT_MODE) {
+            setTheme(R.style.LightTheme);
+        }
         setContentView(R.layout.date_screen)
         dateViewModel = ViewModelProviders.of(this).get(DateScreenViewModel::class.java)
         mainAdapter = MainAdapter()

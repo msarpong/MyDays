@@ -1,7 +1,9 @@
 package com.msarpong.mydays.ui.add
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -18,6 +20,10 @@ import com.msarpong.mydays.ui.setting.SettingScreen
 import org.msarpong.mydays.Db.Notes
 import kotlin.random.Random
 
+const val SHARED_PREFS_SETTING = "Settings_prefs"
+const val SHARED_PREFS_THEME = "Theme"
+const val DARK_MODE = "DARK"
+const val LIGHT_MODE = "LIGHT"
 
 class ChoiceScreen : AppCompatActivity() {
 
@@ -27,8 +33,19 @@ class ChoiceScreen : AppCompatActivity() {
     private lateinit var calendarButton: ImageButton
     private lateinit var settingButton: ImageButton
 
+    private lateinit var sharedPrefs: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPrefs = getSharedPreferences(SHARED_PREFS_SETTING, Context.MODE_PRIVATE)
+        val myTheme = sharedPrefs.getString(SHARED_PREFS_THEME, LIGHT_MODE)
+
+        if (myTheme == DARK_MODE) {
+            setTheme(R.style.DarkTheme);
+        } else if (myTheme == LIGHT_MODE) {
+            setTheme(R.style.LightTheme);
+        }
+
         choiceViewModel = ViewModelProviders.of(this).get(ChoiceScreenViewModel::class.java)
 
         setContentView(R.layout.choice_screen)

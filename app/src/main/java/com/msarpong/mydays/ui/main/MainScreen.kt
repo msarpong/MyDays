@@ -1,6 +1,8 @@
 package com.msarpong.mydays.ui.main
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProviders
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.ChoiceScreen
@@ -20,8 +23,14 @@ import com.github.vipulasri.timelineview.TimelineView
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
 import com.msarpong.mydays.utils.getDate
+import com.msarpong.mydays.utils.getThemeInfo
 
 import java.util.*
+
+const val SHARED_PREFS_SETTING = "Settings_prefs"
+const val SHARED_PREFS_THEME = "Theme"
+const val DARK_MODE = "DARK"
+const val LIGHT_MODE = "LIGHT"
 
 class MainScreen : AppCompatActivity() {
 
@@ -32,15 +41,26 @@ class MainScreen : AppCompatActivity() {
     private lateinit var settingButton: ImageButton
     private lateinit var mainAdapter: MainAdapter
     private lateinit var recyclerView_home: RecyclerView
+    private lateinit var sharedPrefs: SharedPreferences
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainViewModel = ViewModelProviders.of(this).get(MainScreenViewModel::class.java)
+
+        sharedPrefs = getSharedPreferences(SHARED_PREFS_SETTING, Context.MODE_PRIVATE)
+        val myTheme = sharedPrefs.getString(SHARED_PREFS_THEME, LIGHT_MODE)
+        if (myTheme == DARK_MODE) {
+            setTheme(R.style.DarkTheme);
+        } else if (myTheme == LIGHT_MODE) {
+            setTheme(R.style.LightTheme);
+        }
+
         setContentView(R.layout.main_screen)
         mainAdapter = MainAdapter()
         recyclerView_home = findViewById(R.id.recyclerView_home)
         recyclerView_home.adapter = mainAdapter
         recyclerView_home.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+        mainViewModel = ViewModelProviders.of(this).get(MainScreenViewModel::class.java)
 
         setupView()
         setupObserver()
@@ -67,8 +87,6 @@ class MainScreen : AppCompatActivity() {
             val intent = Intent(this, SettingScreen::class.java)
             startActivity(intent)
         }
-
-
     }
 
     private fun setupObserver() {
