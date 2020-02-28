@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.calendar.CalendarScreen
+import com.msarpong.mydays.ui.main.MainScreen
 
 
 const val SHARED_PREFS_SETTING = "Settings_prefs"
@@ -26,6 +27,13 @@ class SettingScreen : AppCompatActivity() {
     private lateinit var themeSwitch: TextView
     private lateinit var securitySwitch: Switch
     private lateinit var sharedPrefs: SharedPreferences
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
+        startActivity(Intent(this, MainScreen::class.java))
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
