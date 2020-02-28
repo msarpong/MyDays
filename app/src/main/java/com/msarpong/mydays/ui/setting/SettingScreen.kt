@@ -33,9 +33,9 @@ class SettingScreen : AppCompatActivity() {
         val myTheme = sharedPrefs.getString(SHARED_PREFS_THEME, LIGHT_MODE)
 
         if (myTheme == DARK_MODE) {
-            setTheme(R.style.DarkTheme);
+            setTheme(R.style.DarkTheme)
         } else if (myTheme == LIGHT_MODE) {
-            setTheme(R.style.LightTheme);
+            setTheme(R.style.LightTheme)
         }
 
         setContentView(R.layout.setting_screen)
@@ -48,6 +48,14 @@ class SettingScreen : AppCompatActivity() {
         calendarButton = findViewById(R.id.btn_calendar)
         settingButton = findViewById(R.id.btn_setting)
         securitySwitch = findViewById(R.id.switch_security)
+
+        val myTheme = sharedPrefs.getString(SHARED_PREFS_THEME, LIGHT_MODE)
+
+        if (myTheme == DARK_MODE) {
+            themeSwitch.setText("DISATTIVA")
+        } else if (myTheme == LIGHT_MODE) {
+            themeSwitch.setText("ATTIVA")
+        }
 
         calendarButton.setOnClickListener {
             val intent = Intent(this, CalendarScreen::class.java)
@@ -67,7 +75,6 @@ class SettingScreen : AppCompatActivity() {
 
             } else if (myTheme == LIGHT_MODE) {
                 sharedPrefs.edit().putString(SHARED_PREFS_THEME, DARK_MODE).apply()
-
             }
 
             finish()
