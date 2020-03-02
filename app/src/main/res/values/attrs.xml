@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="colorBackground" format="color"/>
+    <attr name="colorBackgroundItem" format="color"/>
     <attr name="colorPrimaryText" format="color"/>
+    <attr name="colorSecondaryText" format="color"/>
+    <attr name="colorTitleBar" format="color"/>
 </resources>

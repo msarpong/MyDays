@@ -2,34 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="0dp"
-    android:layout_marginRight="0dp">
+    android:layout_marginRight="0dp"
+    android:orientation="horizontal">
 
     <com.github.vipulasri.timelineview.TimelineView
         android:id="@+id/timeline"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:markerSize="20dp"
+        app:endLineColor="@color/colorBackgroundItem"
+        app:linePadding="1dp"
+        app:lineStyle="normal"
         app:lineWidth="2dp"
         app:marker="@drawable/marker_dark"
-        app:startLineColor="@color/colorBackgroundItem"
-        app:endLineColor="@color/colorBackgroundItem"
-        app:lineStyle="normal"
-        app:linePadding="1dp"/>
+        app:markerSize="20dp"
+        app:startLineColor="@color/colorBackgroundItem" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/recycler_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        app:cardBackgroundColor="@color/colorBackgroundItem"
-        app:contentPadding="10dp"
-        app:cardCornerRadius="5dp">
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="?attr/colorBackgroundItem"
+        app:cardCornerRadius="10dp"
+        app:contentPadding="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,16 +40,14 @@
                 android:id="@+id/recycler_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorBackgroundItem"
-                android:textColor="@color/colorText"
+                android:textColor="?attr/colorPrimaryText"
                 tools:text="08:02 12 Feb" />
 
             <TextView
                 android:id="@+id/recycler_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/colorBackgroundItem"
-                android:textColor="@color/colorText"
+                android:textColor="?attr/colorPrimaryText"
                 android:textStyle="bold"
                 tools:text="Sport" />
         </LinearLayout>

@@ -6,5 +6,7 @@
     <string name="add_new">Add New</string>
     <string name="mood">Mood</string>
     <string name="save">Save</string>
+    <string name="setting_button">Setting button</string>
+    <string name="calendar_button">Calendar button</string>
 
 </resources>

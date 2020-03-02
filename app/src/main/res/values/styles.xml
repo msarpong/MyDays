@@ -3,31 +3,26 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
-
-
-
-
-
     <style name="DarkTheme" parent="AppTheme">
-        <item name="colorBackground">#000000</item>
-        <item name="colorPrimaryText">#FFFFFF</item>
+        <item name="colorBackground">#212121</item>
+        <item name="colorBackgroundItem">#2b2c29</item>
+        <item name="colorTitleBar">#2b2c29</item>
+        <item name="colorPrimaryText">#9D9E9F</item>
+        <item name="colorSecondaryText">#39376E</item>
     </style>
 
     <style name="LightTheme" parent="AppTheme">
-        <item name="colorBackground">#FFFFFF</item>
-        <item name="colorPrimaryText">#000000</item>
-
+        <item name="colorBackground">#efeef3</item>
+        <item name="colorBackgroundItem">#FFFFFF</item>
+        <item name="colorTitleBar">#AFAFB1</item>
+        <item name="colorPrimaryText">#9D9E9F</item>
+        <item name="colorSecondaryText">#8F8DDF</item>
     </style>
-
-
-
-
 
     <style name="CalenderViewCustom" parent="Theme.AppCompat">
         <item name="colorAccent">@android:color/holo_blue_dark</item>

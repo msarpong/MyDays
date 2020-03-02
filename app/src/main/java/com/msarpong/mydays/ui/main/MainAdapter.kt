@@ -1,12 +1,14 @@
 package com.msarpong.mydays.ui.main
 
 import android.app.Activity
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +31,7 @@ class MainAdapter :
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
 
         val diary = getItem(position)
+
         holder.diaryTitle.text = diary.title
         holder.diaryDate.text = diary.datetime.formatDateTime("yyyy-MM-dd HH:mm", "H:mm")
         holder.diaryCard.setOnClickListener {
@@ -42,8 +45,10 @@ class MainAdapter :
     }
 }
 
+
 class NotesViewHolder(view: View, viewType: Int) : RecyclerView.ViewHolder(view) {
     var mTimelineView: TimelineView
+
 
     init {
         mTimelineView = itemView.findViewById<View>(R.id.timeline) as TimelineView
