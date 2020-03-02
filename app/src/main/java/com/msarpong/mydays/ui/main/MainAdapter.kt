@@ -32,6 +32,7 @@ class MainAdapter :
 
         val diary = getItem(position)
 
+        holder.mTimelineView.lineStyle
         holder.diaryTitle.text = diary.title
         holder.diaryDate.text = diary.datetime.formatDateTime("yyyy-MM-dd HH:mm", "H:mm")
         holder.diaryCard.setOnClickListener {
@@ -45,19 +46,17 @@ class MainAdapter :
     }
 }
 
-
 class NotesViewHolder(view: View, viewType: Int) : RecyclerView.ViewHolder(view) {
     var mTimelineView: TimelineView
 
+    val diaryTitle = view.findViewById<TextView>(R.id.recycler_title)
+    val diaryDate = view.findViewById<TextView>(R.id.recycler_date)
+    val diaryCard = view.findViewById<CardView>(R.id.recycler_card)
 
     init {
         mTimelineView = itemView.findViewById<View>(R.id.timeline) as TimelineView
         mTimelineView.initLine(viewType)
     }
-
-    val diaryTitle = view.findViewById<TextView>(R.id.recycler_title)
-    val diaryDate = view.findViewById<TextView>(R.id.recycler_date)
-    val diaryCard = view.findViewById<CardView>(R.id.recycler_card)
 }
 
 class NotesDiffUtil : DiffUtil.ItemCallback<Notes>() {

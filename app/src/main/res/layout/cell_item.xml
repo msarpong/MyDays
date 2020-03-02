@@ -12,7 +12,6 @@
         android:id="@+id/timeline"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:endLineColor="@color/colorBackgroundItem"
         app:linePadding="1dp"
         app:lineStyle="normal"
         app:lineWidth="2dp"

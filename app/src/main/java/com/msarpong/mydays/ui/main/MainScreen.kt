@@ -44,9 +44,7 @@ class MainScreen : AppCompatActivity() {
     private lateinit var recyclerView_home: RecyclerView
     private lateinit var sharedPrefs: SharedPreferences
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
 
         sharedPrefs = getSharedPreferences(SHARED_PREFS_SETTING, Context.MODE_PRIVATE)
@@ -58,14 +56,19 @@ class MainScreen : AppCompatActivity() {
         }
 
         setContentView(R.layout.main_screen)
+        mainViewModel = ViewModelProviders.of(this).get(MainScreenViewModel::class.java)
+
+        initRecyclerView()
+        setupView()
+        setupObserver()
+    }
+
+    private fun initRecyclerView() {
         mainAdapter = MainAdapter()
         recyclerView_home = findViewById(R.id.recyclerView_home)
         recyclerView_home.adapter = mainAdapter
         recyclerView_home.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        mainViewModel = ViewModelProviders.of(this).get(MainScreenViewModel::class.java)
 
-        setupView()
-        setupObserver()
     }
 
     private fun setupView() {
