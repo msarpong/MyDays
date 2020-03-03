@@ -12,11 +12,15 @@ import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.text.AddTextScreen
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.main.MainScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
+import com.msarpong.mydays.utils.getThemeInfo
 import org.msarpong.mydays.Db.Notes
 import kotlin.random.Random
 
@@ -34,32 +38,43 @@ class ChoiceScreen : AppCompatActivity() {
     private lateinit var settingButton: ImageButton
 
     private lateinit var sharedPrefs: SharedPreferences
+    private lateinit var choiceAdapter: ChoiceScreenAdapter
+    private lateinit var recyclerViewChoice: RecyclerView
+    private val cardList = listOf(
+        Choice(R.drawable.ic_format_align, "Text"),
+        Choice(R.drawable.ic_format_align, "Text"),
+        Choice(R.drawable.ic_format_align, "Text"),
+        Choice(R.drawable.ic_format_align, "Text"),
+        Choice(R.drawable.ic_format_align, "Text"),
+        Choice(R.drawable.ic_format_align, "Text"),
+        Choice(R.drawable.ic_format_align, "Text"),
+        Choice(R.drawable.ic_format_align, "Text"),
+        Choice(R.drawable.ic_icon_awesome_running, "Sport")
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPrefs = getSharedPreferences(SHARED_PREFS_SETTING, Context.MODE_PRIVATE)
-        val myTheme = sharedPrefs.getString(SHARED_PREFS_THEME, LIGHT_MODE)
-
-        if (myTheme == DARK_MODE) {
-            setTheme(R.style.DarkTheme);
-        } else if (myTheme == LIGHT_MODE) {
-            setTheme(R.style.LightTheme);
-        }
+        setTheme(getThemeInfo(sharedPrefs.getString(SHARED_PREFS_THEME, DARK_MODE)))
 
         choiceViewModel = ViewModelProviders.of(this).get(ChoiceScreenViewModel::class.java)
 
         setContentView(R.layout.choice_screen)
+        initRecyclerView()
         setupView()
 
     }
 
-    private fun setupView() {
+    private fun initRecyclerView() {
+        choiceAdapter = ChoiceScreenAdapter()
+        recyclerViewChoice = findViewById(R.id.recyclerView_choice)
+        recyclerViewChoice.adapter = choiceAdapter
+        recyclerViewChoice.layoutManager = GridLayoutManager(this, 3)
 
-        goToAddText = findViewById(R.id.card_text)
-        goToAddText.setOnClickListener {
-            val intent = Intent(this, AddTextScreen::class.java)
-            startActivityForResult(intent, 1000)
-        }
+        choiceAdapter.submitList(cardList)
+    }
+
+    private fun setupView() {
 
         calendarButton = findViewById(R.id.btn_calendar)
         settingButton = findViewById(R.id.btn_setting)

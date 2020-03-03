@@ -3,30 +3,23 @@ package com.msarpong.mydays.ui.main
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.lifecycle.ViewModelProviders
-import com.msarpong.mydays.R
-import com.msarpong.mydays.ui.add.ChoiceScreen
-import org.msarpong.mydays.Db.Notes
-import java.text.SimpleDateFormat
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.github.vipulasri.timelineview.TimelineView
+import com.msarpong.mydays.R
+import com.msarpong.mydays.ui.add.ChoiceScreen
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
 import com.msarpong.mydays.utils.getDate
-import com.msarpong.mydays.utils.getThemeInfo
-
-import java.util.*
+import org.msarpong.mydays.Db.Notes
 
 const val SHARED_PREFS_SETTING = "Settings_prefs"
 const val SHARED_PREFS_THEME = "Theme"
