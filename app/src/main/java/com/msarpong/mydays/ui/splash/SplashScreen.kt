@@ -1,5 +1,6 @@
 package com.msarpong.mydays.ui.splash
 
+import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.os.Handler
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.main.MainScreen
+import com.msarpong.mydays.utils.getThemeInfo
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -23,6 +25,10 @@ class SplashScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        sharedPrefs = getSharedPreferences(SHARED_PREFS_SETTING, Context.MODE_PRIVATE)
+        setTheme(getThemeInfo(sharedPrefs.getString(SHARED_PREFS_THEME, DARK_MODE)))
+
         setContentView(R.layout.splash_screen)
         goToMain()
     }
