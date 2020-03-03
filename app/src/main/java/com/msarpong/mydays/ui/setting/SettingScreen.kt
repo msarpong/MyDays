@@ -4,21 +4,21 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageButton
 import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.main.MainScreen
+import com.msarpong.mydays.utils.getThemeInfo
 
 
 const val SHARED_PREFS_SETTING = "Settings_prefs"
 const val SHARED_PREFS_THEME = "Theme"
 const val DARK_MODE = "DARK"
 const val LIGHT_MODE = "LIGHT"
+
 
 class SettingScreen : AppCompatActivity() {
 
@@ -38,13 +38,8 @@ class SettingScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPrefs = getSharedPreferences(SHARED_PREFS_SETTING, Context.MODE_PRIVATE)
-        val myTheme = sharedPrefs.getString(SHARED_PREFS_THEME, LIGHT_MODE)
 
-        if (myTheme == DARK_MODE) {
-            setTheme(R.style.DarkTheme)
-        } else if (myTheme == LIGHT_MODE) {
-            setTheme(R.style.LightTheme)
-        }
+        setTheme(getThemeInfo(sharedPrefs.getString(SHARED_PREFS_THEME, DARK_MODE)))
 
         setContentView(R.layout.setting_screen)
         setupView()
