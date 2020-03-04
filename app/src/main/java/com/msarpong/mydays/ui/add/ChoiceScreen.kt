@@ -5,29 +5,24 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
 import android.widget.ImageButton
-import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.msarpong.mydays.R
-import com.msarpong.mydays.ui.add.text.AddTextScreen
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.main.MainScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
 import com.msarpong.mydays.utils.getThemeInfo
 import org.msarpong.mydays.Db.Notes
-import kotlin.random.Random
 
 const val SHARED_PREFS_SETTING = "Settings_prefs"
 const val SHARED_PREFS_THEME = "Theme"
 const val DARK_MODE = "DARK"
 const val LIGHT_MODE = "LIGHT"
+const val ADD_TEXT = 1000
 
 class ChoiceScreen : AppCompatActivity() {
 
@@ -79,7 +74,6 @@ class ChoiceScreen : AppCompatActivity() {
         calendarButton = findViewById(R.id.btn_calendar)
         settingButton = findViewById(R.id.btn_setting)
 
-
         calendarButton.setOnClickListener {
             val intent = Intent(this, CalendarScreen::class.java)
             startActivity(intent)
@@ -93,7 +87,7 @@ class ChoiceScreen : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 1000 && resultCode == Activity.RESULT_OK) {
+        if (requestCode == ADD_TEXT && resultCode == Activity.RESULT_OK) {
             if (data != null) {
 
                 choiceViewModel.send(
@@ -111,11 +105,11 @@ class ChoiceScreen : AppCompatActivity() {
                     )
                 )
             }
-            returntToMain()
+            returnToMain()
         }
     }
 
-    private fun returntToMain() {
+    private fun returnToMain() {
         val intent = Intent(this, MainScreen::class.java)
         startActivity(intent)
     }

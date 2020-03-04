@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.add.sport.AddSportScreen"></activity>
         <activity android:name=".ui.detailDate.DateScreen" />
         <activity android:name=".ui.detail.DetailScreen" />
         <activity android:name=".ui.calendar.CalendarScreen" />
