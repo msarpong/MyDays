@@ -2,19 +2,19 @@ package com.msarpong.mydays.ui.add
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.cardview.widget.CardView
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.msarpong.mydays.R
+import com.msarpong.mydays.ui.add.sport.AddSportScreen
+import com.msarpong.mydays.ui.add.text.AddTextScreen
 
 class ChoiceScreenAdapter : ListAdapter<Choice, ChoiceViewHolder>(ChoiceDiffCallback()) {
 
@@ -33,7 +33,8 @@ class ChoiceScreenAdapter : ListAdapter<Choice, ChoiceViewHolder>(ChoiceDiffCall
             holder.cardIcon.setImageResource(it.image)
             holder.card.setOnClickListener {
                 when (holder.cardLabel.text) {
-                    "sport" -> ""
+                    "Sport" -> AddSportScreen.OpenAddSport(holder.card.context as Activity)
+                    "Text" -> AddTextScreen.OpenAddText(holder.card.context as Activity)
                 }
             }
         }

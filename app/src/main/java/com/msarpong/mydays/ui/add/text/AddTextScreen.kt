@@ -10,60 +10,70 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat.startActivityForResult
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
 import com.msarpong.mydays.utils.getDate
+import com.msarpong.mydays.utils.getThemeInfo
 
 const val SHARED_PREFS_SETTING = "Settings_prefs"
 const val SHARED_PREFS_THEME = "Theme"
 const val DARK_MODE = "DARK"
-const val LIGHT_MODE = "LIGHT"
+
+const val MOOD_SAD = "SAD"
+const val MOOD_SMILE = "SMILE"
+const val MOOD_CONFUSED = "CONFUSED"
 
 class AddTextScreen : AppCompatActivity() {
 
     private lateinit var saveBtn: Button
     private lateinit var calendarButton: ImageButton
     private lateinit var settingButton: ImageButton
-
     private lateinit var sharedPrefs: SharedPreferences
+
+    companion object {
+        fun OpenAddText(startingActivity: Activity) {
+            val intent = Intent(startingActivity, AddTextScreen::class.java)
+            startingActivity.startActivityForResult(intent,1000)
+        }
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         sharedPrefs = getSharedPreferences(SHARED_PREFS_SETTING, Context.MODE_PRIVATE)
-        val myTheme = sharedPrefs.getString(SHARED_PREFS_THEME, LIGHT_MODE)
-        if (myTheme == DARK_MODE) {
-            setTheme(R.style.DarkTheme);
-        } else if (myTheme == LIGHT_MODE) {
-            setTheme(R.style.LightTheme);
-        }
+        setTheme(getThemeInfo(sharedPrefs.getString(SHARED_PREFS_THEME, DARK_MODE)))
 
         setContentView(R.layout.add_text_screen)
         setupView()
+        saveData()
     }
 
     private fun setupView() {
 
+        calendarButton = findViewById(R.id.btn_calendar)
+        settingButton = findViewById(R.id.btn_setting)
+
+        calendarButton.setOnClickListener {
+            val intent = Intent(this, CalendarScreen::class.java)
+            startActivity(intent)
+        }
+
+        settingButton.setOnClickListener {
+            val intent = Intent(this, SettingScreen::class.java)
+            startActivity(intent)
+        }
+    }
+
+
+    private fun saveData() {
         saveBtn = findViewById(R.id.btn_save)
         saveBtn.setOnClickListener {
             val titleET = findViewById<EditText>(R.id.editTitle).text.toString()
             val bodyET = findViewById<EditText>(R.id.editBody).text.toString()
             val moodRB = findViewById<RadioGroup>(R.id.radio_mood)
-
-            calendarButton = findViewById(R.id.btn_calendar)
-            settingButton = findViewById(R.id.btn_setting)
-
-            calendarButton.setOnClickListener {
-                val intent = Intent(this, CalendarScreen::class.java)
-                startActivity(intent)
-            }
-
-            settingButton.setOnClickListener {
-                val intent = Intent(this, SettingScreen::class.java)
-                startActivity(intent)
-            }
 
             var selectedId = moodRB.checkedRadioButtonId
             var mood = "default"
@@ -73,9 +83,9 @@ class AddTextScreen : AppCompatActivity() {
             var smile = R.id.mood_smile
 
             when (selectedId) {
-                confused -> mood = "sad"
-                sad -> mood = "sad"
-                smile -> mood = "smile"
+                confused -> mood = MOOD_CONFUSED
+                sad -> mood = MOOD_SAD
+                smile -> mood = MOOD_SMILE
             }
 
             intent.putExtra("ADD_NOTE_TITLE", titleET)
@@ -91,6 +101,5 @@ class AddTextScreen : AppCompatActivity() {
             finish()
         }
     }
-
 
 }

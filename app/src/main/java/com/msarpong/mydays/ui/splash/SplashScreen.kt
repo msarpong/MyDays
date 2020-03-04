@@ -28,7 +28,6 @@ class SplashScreen : AppCompatActivity() {
 
         sharedPrefs = getSharedPreferences(SHARED_PREFS_SETTING, Context.MODE_PRIVATE)
         setTheme(getThemeInfo(sharedPrefs.getString(SHARED_PREFS_THEME, DARK_MODE)))
-
         setContentView(R.layout.splash_screen)
         goToMain()
     }

@@ -18,7 +18,11 @@ import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.ChoiceScreen
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
+import com.msarpong.mydays.ui.splash.DARK_MODE
+import com.msarpong.mydays.ui.splash.SHARED_PREFS_SETTING
+import com.msarpong.mydays.ui.splash.SHARED_PREFS_THEME
 import com.msarpong.mydays.utils.getDate
+import com.msarpong.mydays.utils.getThemeInfo
 import org.msarpong.mydays.Db.Notes
 
 const val SHARED_PREFS_SETTING = "Settings_prefs"
@@ -41,13 +45,7 @@ class MainScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         sharedPrefs = getSharedPreferences(SHARED_PREFS_SETTING, Context.MODE_PRIVATE)
-        val myTheme = sharedPrefs.getString(SHARED_PREFS_THEME, LIGHT_MODE)
-        if (myTheme == DARK_MODE) {
-            setTheme(R.style.DarkTheme);
-        } else if (myTheme == LIGHT_MODE) {
-            setTheme(R.style.LightTheme);
-        }
-
+        setTheme(getThemeInfo(sharedPrefs.getString(SHARED_PREFS_THEME, DARK_MODE)))
         setContentView(R.layout.main_screen)
         mainViewModel = ViewModelProviders.of(this).get(MainScreenViewModel::class.java)
 

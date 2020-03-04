@@ -27,7 +27,6 @@ const val ADD_TEXT = 1000
 class ChoiceScreen : AppCompatActivity() {
 
     private lateinit var choiceViewModel: ChoiceScreenViewModel
-    private lateinit var goToAddText: CardView
 
     private lateinit var calendarButton: ImageButton
     private lateinit var settingButton: ImageButton
@@ -35,20 +34,15 @@ class ChoiceScreen : AppCompatActivity() {
     private lateinit var sharedPrefs: SharedPreferences
     private lateinit var choiceAdapter: ChoiceScreenAdapter
     private lateinit var recyclerViewChoice: RecyclerView
+
     private val cardList = listOf(
-        Choice(R.drawable.ic_format_align, "Text"),
-        Choice(R.drawable.ic_format_align, "Text"),
-        Choice(R.drawable.ic_format_align, "Text"),
-        Choice(R.drawable.ic_format_align, "Text"),
-        Choice(R.drawable.ic_format_align, "Text"),
-        Choice(R.drawable.ic_format_align, "Text"),
-        Choice(R.drawable.ic_format_align, "Text"),
         Choice(R.drawable.ic_format_align, "Text"),
         Choice(R.drawable.ic_icon_awesome_running, "Sport")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         sharedPrefs = getSharedPreferences(SHARED_PREFS_SETTING, Context.MODE_PRIVATE)
         setTheme(getThemeInfo(sharedPrefs.getString(SHARED_PREFS_THEME, DARK_MODE)))
 

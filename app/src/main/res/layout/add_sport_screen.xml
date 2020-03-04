@@ -7,4 +7,10 @@
     android:background="@color/colorBackground"
     tools:context=".ui.add.sport.AddSportScreen">
 
+    <include
+        android:id="@+id/card_header"
+        layout="@layout/titlebar" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
