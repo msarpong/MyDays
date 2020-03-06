@@ -1,6 +1,7 @@
 package com.msarpong.mydays.ui.detailDate
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -20,7 +21,6 @@ sealed class DateState {
 
 class DateScreenViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: MyDaysRepository
-    private val notesData = MutableLiveData<List<Notes>>()
     var state: MutableLiveData<DateState> = MutableLiveData()
 
     init {
@@ -30,11 +30,17 @@ class DateScreenViewModel(application: Application) : AndroidViewModel(applicati
 
     fun send(event: DateEvent, dateId: String) {
         when (event) {
-            is DateEvent.Load -> loadContent(dateId)
+            is DateEvent.Load -> {
+                loadContent(dateId)
+            }
         }
     }
 
     private fun loadContent(dateId: String) = viewModelScope.launch {
-        state.value = DateState.Success(repository.getNoteByDate(dateId))
+        if (repository.getNoteByDate(dateId).size > 0) {
+            state.value = DateState.Success(repository.getNoteByDate(dateId))
+        } else {
+            state.value = DateState.Error(Throwable("Error: No data found"))
+        }
     }
 }

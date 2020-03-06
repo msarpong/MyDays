@@ -2,7 +2,7 @@ package com.msarpong.mydays.utils
 
 import androidx.appcompat.app.AppCompatDelegate
 import com.msarpong.mydays.R
-import com.msarpong.mydays.ui.main.DARK_MODE
+import com.msarpong.mydays.ui.splash.DARK_MODE
 
 
 fun getThemeMode(): Int {

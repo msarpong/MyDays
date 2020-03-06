@@ -25,10 +25,7 @@ import com.msarpong.mydays.utils.getDate
 import com.msarpong.mydays.utils.getThemeInfo
 import org.msarpong.mydays.Db.Notes
 
-const val SHARED_PREFS_SETTING = "Settings_prefs"
-const val SHARED_PREFS_THEME = "Theme"
-const val DARK_MODE = "DARK"
-const val LIGHT_MODE = "LIGHT"
+
 
 class MainScreen : AppCompatActivity() {
 
