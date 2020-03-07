@@ -83,9 +83,9 @@ class AddTextScreen : AppCompatActivity() {
             intent.putExtra("ADD_NOTE_TEXT", bodyET)
             intent.putExtra("ADD_NOTE_MOOD", mood)
             intent.putExtra("ADD_NOTE_IMAGE", "image")
-            intent.putExtra("ADD_NOTE_DATE", getDate("dd/M/yyyy"))
-            intent.putExtra("ADD_NOTE_HOUR", getDate("hh:mm"))
-            intent.putExtra("ADD_NOTE_DATETIME", getDate("yyyy-MM-dd HH:mm"))
+            intent.putExtra("ADD_NOTE_DATE", getDate(DATE))
+            intent.putExtra("ADD_NOTE_HOUR", getDate(HOUR))
+            intent.putExtra("ADD_NOTE_DATETIME", getDate(DATETIME))
 
             setResult(Activity.RESULT_OK, intent)
             finish()

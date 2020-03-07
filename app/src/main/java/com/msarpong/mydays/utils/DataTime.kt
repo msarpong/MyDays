@@ -1,9 +1,20 @@
 package com.msarpong.mydays.utils
 
+import org.threeten.bp.Instant
 import org.threeten.bp.LocalDateTime
+import org.threeten.bp.ZoneId
+import org.threeten.bp.ZonedDateTime
 import org.threeten.bp.format.DateTimeFormatter
 import java.text.SimpleDateFormat
 import java.util.*
+
+fun now(): Instant? {
+    return Instant.now()
+}
+
+fun hereAndNow(): ZonedDateTime? {
+    return ZonedDateTime.ofInstant(now(), ZoneId.systemDefault())
+}
 
 fun String.formatDateTime(originalFormat: String, ouputFormat: String): String {
     val date =

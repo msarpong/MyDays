@@ -42,9 +42,9 @@ class ChoiceScreenAdapter : ListAdapter<Choice, ChoiceViewHolder>(ChoiceDiffCall
 }
 
 class ChoiceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val cardLabel = itemView.findViewById<TextView>(R.id.card_label)
-    val cardIcon = itemView.findViewById<ImageView>(R.id.card_icon)
-    val card = itemView.findViewById<CardView>(R.id.card_item)
+    val cardLabel: TextView = itemView.findViewById(R.id.card_label)
+    val cardIcon: ImageView = itemView.findViewById(R.id.card_icon)
+    val card: CardView = itemView.findViewById(R.id.card_item)
 }
 
 class ChoiceDiffCallback : DiffUtil.ItemCallback<Choice>() {

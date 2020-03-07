@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.msarpong.mydays.utils.DATE
 import com.msarpong.mydays.utils.getDate
 import kotlinx.coroutines.launch
 import org.msarpong.mydays.Db.MyDaysRepository
@@ -36,7 +37,7 @@ class MainScreenViewModel(application: Application) : AndroidViewModel(applicati
 
     private fun updateNote() = viewModelScope.launch {
         notesData.postValue(repository.getAllNotes())
-        state.value = MainState.Success(repository.getNoteByDate(getDate("dd/M/yyyy")))
+        state.value = MainState.Success(repository.getNoteByDate(getDate(DATE)))
     }
 
     fun send(event: MainEvent) {

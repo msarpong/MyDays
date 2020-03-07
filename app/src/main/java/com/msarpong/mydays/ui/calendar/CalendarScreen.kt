@@ -46,12 +46,12 @@ class CalendarScreen : AppCompatActivity() {
             val intent = Intent(this, SettingScreen::class.java)
             startActivity(intent)
         }
-        calendarView.setOnDateChangeListener(OnDateChangeListener { view, year, month, dayOfMonth ->
-            val date = "0" + dayOfMonth.toString() + "/" + (month + 1) + "/" + year
+        calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
+            val date = dayOfMonth.toString() + "/" + (month + 1) + "/" + year //todo change data 7/3/2020 to 07/03/2020
             val intent = Intent(this, DateScreen::class.java)
             intent.putExtra("Date", date)
             startActivity(intent)
 
-        })
+        }
     }
 }

@@ -22,7 +22,6 @@ import com.msarpong.mydays.utils.*
 import org.msarpong.mydays.Db.Notes
 
 
-
 class MainScreen : AppCompatActivity() {
 
     private lateinit var mainViewModel: MainScreenViewModel
@@ -47,6 +46,7 @@ class MainScreen : AppCompatActivity() {
         setupObserver()
     }
 
+
     private fun initRecyclerView() {
         mainAdapter = MainAdapter()
         recyclerviewHome = findViewById(R.id.recyclerView_home)
@@ -60,7 +60,7 @@ class MainScreen : AppCompatActivity() {
         calendarButton = findViewById(R.id.btn_calendar)
         settingButton = findViewById(R.id.btn_setting)
 
-        myTodayDate.setText(getDate("EEEE, dd MMMM yyyy"))
+        myTodayDate.text = getDate(FULLDATETIME)
 
         addButton.setOnClickListener {
             val intent = Intent(this, ChoiceScreen::class.java)
@@ -89,7 +89,7 @@ class MainScreen : AppCompatActivity() {
     private fun showDatas(notes: List<Notes>) {
         mainAdapter.submitList(notes)
         notes.forEach {
-            Log.i("ITEM: ", it.id.toString())
+            Log.i("ITEM: ", it.date_note.toString())
         }
     }
 

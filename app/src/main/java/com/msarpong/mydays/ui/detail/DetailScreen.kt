@@ -93,10 +93,9 @@ class DetailScreen : AppCompatActivity() {
     private fun showDatas(dayNotes: Notes) {
         detailTitle.text = dayNotes.title
         detailBody.text = dayNotes.text
-        detailDate.text = dayNotes.datetime.formatDateTime("yyyy-MM-dd HH:mm", "dd-M-yyyy HH:mm")
+        detailDate.text = dayNotes.datetime.formatDateTime(DATETIME, FULLDATETIME)
 
         var moodIcon = dayNotes.mood
-        Log.d("MOOD", moodIcon)
 
         when (moodIcon) {
             MOOD_SMILE -> detailMood.setImageResource(R.drawable.ic_smile)

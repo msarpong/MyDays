@@ -61,7 +61,7 @@ class DateScreen : AppCompatActivity() {
         settingButton = findViewById(R.id.btn_setting)
 
         dateViewModel.send(DateEvent.Load, dateNote)
-        myTodayDate.setText(dateNote)
+        myTodayDate.text = dateNote
 
         calendarButton.setOnClickListener {
             val intent = Intent(this, CalendarScreen::class.java)
