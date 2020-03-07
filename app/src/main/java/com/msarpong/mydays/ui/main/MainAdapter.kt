@@ -45,14 +45,13 @@ class MainAdapter :
 }
 
 class NotesViewHolder(view: View, viewType: Int) : RecyclerView.ViewHolder(view) {
-    var mTimelineView: TimelineView
+    var mTimelineView: TimelineView = itemView.findViewById<View>(R.id.timeline) as TimelineView
 
-    val diaryTitle = view.findViewById<TextView>(R.id.recycler_title)
-    val diaryDate = view.findViewById<TextView>(R.id.recycler_date)
-    val diaryCard = view.findViewById<CardView>(R.id.recycler_card)
+    val diaryTitle: TextView = view.findViewById(R.id.recycler_title)
+    val diaryDate: TextView = view.findViewById(R.id.recycler_date)
+    val diaryCard: CardView = view.findViewById(R.id.recycler_card)
 
     init {
-        mTimelineView = itemView.findViewById<View>(R.id.timeline) as TimelineView
         mTimelineView.initLine(viewType)
     }
 }

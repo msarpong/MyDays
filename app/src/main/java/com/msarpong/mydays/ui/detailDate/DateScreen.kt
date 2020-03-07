@@ -17,9 +17,9 @@ import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.main.MainAdapter
 import com.msarpong.mydays.ui.setting.SettingScreen
-import com.msarpong.mydays.ui.splash.DARK_MODE
-import com.msarpong.mydays.ui.splash.SHARED_PREFS_SETTING
-import com.msarpong.mydays.ui.splash.SHARED_PREFS_THEME
+import com.msarpong.mydays.utils.DARK_MODE
+import com.msarpong.mydays.utils.SHARED_PREFS_SETTING
+import com.msarpong.mydays.utils.SHARED_PREFS_THEME
 import com.msarpong.mydays.utils.getThemeInfo
 import org.msarpong.mydays.Db.Notes
 
@@ -79,7 +79,6 @@ class DateScreen : AppCompatActivity() {
             when (state) {
                 is DateState.Error -> showError(state.error)
                 is DateState.Success -> {
-//                    Log.d("Date notes", state.dayNotes[0].date_note)
                     showDatas(state.dayNotes)
                 }
             }

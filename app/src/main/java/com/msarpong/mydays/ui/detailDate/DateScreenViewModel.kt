@@ -37,7 +37,7 @@ class DateScreenViewModel(application: Application) : AndroidViewModel(applicati
     }
 
     private fun loadContent(dateId: String) = viewModelScope.launch {
-        if (repository.getNoteByDate(dateId).size > 0) {
+        if (repository.getNoteByDate(dateId).isNotEmpty()) {
             state.value = DateState.Success(repository.getNoteByDate(dateId))
         } else {
             state.value = DateState.Error(Throwable("Error: No data found"))

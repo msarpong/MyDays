@@ -10,20 +10,10 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat.startActivityForResult
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
-import com.msarpong.mydays.utils.getDate
-import com.msarpong.mydays.utils.getThemeInfo
-
-const val SHARED_PREFS_SETTING = "Settings_prefs"
-const val SHARED_PREFS_THEME = "Theme"
-const val DARK_MODE = "DARK"
-
-const val MOOD_SAD = "SAD"
-const val MOOD_SMILE = "SMILE"
-const val MOOD_CONFUSED = "CONFUSED"
+import com.msarpong.mydays.utils.*
 
 class AddTextScreen : AppCompatActivity() {
 

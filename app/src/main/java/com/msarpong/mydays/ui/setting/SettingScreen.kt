@@ -11,14 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.main.MainScreen
-import com.msarpong.mydays.utils.getThemeInfo
-
-
-const val SHARED_PREFS_SETTING = "Settings_prefs"
-const val SHARED_PREFS_THEME = "Theme"
-const val DARK_MODE = "DARK"
-const val LIGHT_MODE = "LIGHT"
-
+import com.msarpong.mydays.utils.*
 
 class SettingScreen : AppCompatActivity() {
 
@@ -55,9 +48,9 @@ class SettingScreen : AppCompatActivity() {
         val myTheme = sharedPrefs.getString(SHARED_PREFS_THEME, LIGHT_MODE)
 
         if (myTheme == DARK_MODE) {
-            themeSwitch.setText("DISATTIVA")
+            themeSwitch.text = getString(R.string.disable_setting_theme)
         } else if (myTheme == LIGHT_MODE) {
-            themeSwitch.setText("ATTIVA")
+            themeSwitch.text = getString(R.string.enable_setting_theme)
         }
 
         calendarButton.setOnClickListener {
@@ -75,7 +68,6 @@ class SettingScreen : AppCompatActivity() {
             val myTheme = sharedPrefs.getString(SHARED_PREFS_THEME, LIGHT_MODE)
             if (myTheme == DARK_MODE) {
                 sharedPrefs.edit().putString(SHARED_PREFS_THEME, LIGHT_MODE).apply()
-
             } else if (myTheme == LIGHT_MODE) {
                 sharedPrefs.edit().putString(SHARED_PREFS_THEME, DARK_MODE).apply()
             }
@@ -91,18 +83,4 @@ class SettingScreen : AppCompatActivity() {
         startActivity(Intent(this, SettingScreen::class.java))
     }
 
-
-//    private fun merda(){
-//        tvChangeTheme.setOnClickListener(object : OnClickListener() {
-//            fun onClick(v: View?) {
-//                if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-//                } else {
-//                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-//                }
-//                finish()
-//                startActivity(Intent(this@MainActivity, this@MainActivity.getClass()))
-//            }
-//        })
-//    }
 }

@@ -12,9 +12,9 @@ import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.detailDate.DateScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
 import com.msarpong.mydays.utils.getThemeInfo
-import com.msarpong.mydays.ui.splash.DARK_MODE
-import com.msarpong.mydays.ui.splash.SHARED_PREFS_THEME
-import com.msarpong.mydays.ui.splash.SHARED_PREFS_SETTING
+import com.msarpong.mydays.utils.DARK_MODE
+import com.msarpong.mydays.utils.SHARED_PREFS_SETTING
+import com.msarpong.mydays.utils.SHARED_PREFS_THEME
 
 class CalendarScreen : AppCompatActivity() {
 

@@ -8,5 +8,7 @@
     <string name="save">Save</string>
     <string name="setting_button">Setting button</string>
     <string name="calendar_button">Calendar button</string>
+    <string name="enable_setting_theme">Enable</string>
+    <string name="disable_setting_theme">Disable</string>
 
 </resources>

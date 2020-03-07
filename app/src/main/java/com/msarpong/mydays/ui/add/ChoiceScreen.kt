@@ -15,14 +15,8 @@ import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.main.MainScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
-import com.msarpong.mydays.utils.getThemeInfo
+import com.msarpong.mydays.utils.*
 import org.msarpong.mydays.Db.Notes
-
-const val SHARED_PREFS_SETTING = "Settings_prefs"
-const val SHARED_PREFS_THEME = "Theme"
-const val DARK_MODE = "DARK"
-const val LIGHT_MODE = "LIGHT"
-const val ADD_TEXT = 1000
 
 class ChoiceScreen : AppCompatActivity() {
 
@@ -59,7 +53,6 @@ class ChoiceScreen : AppCompatActivity() {
         recyclerViewChoice = findViewById(R.id.recyclerView_choice)
         recyclerViewChoice.adapter = choiceAdapter
         recyclerViewChoice.layoutManager = GridLayoutManager(this, 3)
-
         choiceAdapter.submitList(cardList)
     }
 
@@ -108,7 +101,4 @@ class ChoiceScreen : AppCompatActivity() {
         startActivity(intent)
     }
 
-//    private fun setupObserver() {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-//    }
 }

@@ -15,7 +15,6 @@ sealed class MyDaysEvent {
     data class AddNote(val dayNotes: Notes) : MyDaysEvent()
 }
 
-// States that HomeViewModel can have
 sealed class MyDaysState {
 
     data class Error(val error: Throwable) : MyDaysState()

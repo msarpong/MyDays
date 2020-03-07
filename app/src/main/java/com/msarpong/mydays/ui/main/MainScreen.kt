@@ -18,11 +18,7 @@ import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.ChoiceScreen
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
-import com.msarpong.mydays.ui.splash.DARK_MODE
-import com.msarpong.mydays.ui.splash.SHARED_PREFS_SETTING
-import com.msarpong.mydays.ui.splash.SHARED_PREFS_THEME
-import com.msarpong.mydays.utils.getDate
-import com.msarpong.mydays.utils.getThemeInfo
+import com.msarpong.mydays.utils.*
 import org.msarpong.mydays.Db.Notes
 
 
@@ -35,7 +31,7 @@ class MainScreen : AppCompatActivity() {
     private lateinit var calendarButton: ImageButton
     private lateinit var settingButton: ImageButton
     private lateinit var mainAdapter: MainAdapter
-    private lateinit var recyclerView_home: RecyclerView
+    private lateinit var recyclerviewHome: RecyclerView
     private lateinit var sharedPrefs: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,10 +49,9 @@ class MainScreen : AppCompatActivity() {
 
     private fun initRecyclerView() {
         mainAdapter = MainAdapter()
-        recyclerView_home = findViewById(R.id.recyclerView_home)
-        recyclerView_home.adapter = mainAdapter
-        recyclerView_home.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-
+        recyclerviewHome = findViewById(R.id.recyclerView_home)
+        recyclerviewHome.adapter = mainAdapter
+        recyclerviewHome.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
     }
 
     private fun setupView() {

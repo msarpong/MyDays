@@ -8,15 +8,11 @@ import android.os.Bundle
 import android.os.Handler
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.main.MainScreen
-import com.msarpong.mydays.utils.getThemeInfo
+import com.msarpong.mydays.utils.*
 import java.util.*
 import kotlin.concurrent.schedule
 
-const val MAIN_SCREEN_TIME = 2000L
-const val SHARED_PREFS_SETTING = "Settings_prefs"
-const val SHARED_PREFS_THEME = "Theme"
-const val DARK_MODE = "DARK"
-const val LIGHT_MODE = "LIGHT"
+
 
 class SplashScreen : AppCompatActivity() {
 

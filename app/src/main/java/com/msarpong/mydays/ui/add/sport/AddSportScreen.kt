@@ -7,9 +7,10 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.msarpong.mydays.R
-import com.msarpong.mydays.ui.splash.SHARED_PREFS_SETTING
-import com.msarpong.mydays.ui.splash.SHARED_PREFS_THEME
-import com.msarpong.mydays.ui.splash.DARK_MODE
+import com.msarpong.mydays.utils.DARK_MODE
+import com.msarpong.mydays.utils.SHARED_PREFS_SETTING
+import com.msarpong.mydays.utils.SHARED_PREFS_THEME
+
 
 import com.msarpong.mydays.utils.getThemeInfo
 
