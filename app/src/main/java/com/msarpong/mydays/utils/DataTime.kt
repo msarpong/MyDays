@@ -8,8 +8,16 @@ import org.threeten.bp.format.DateTimeFormatter
 import java.text.SimpleDateFormat
 import java.util.*
 
+private var date = Date()
+
 fun now(): Instant? {
     return Instant.now()
+}
+
+fun nowDate(): String {
+    val d1 = Date()
+    val cc = ("Current date is $d1").toString()
+    return cc
 }
 
 fun hereAndNow(): ZonedDateTime? {

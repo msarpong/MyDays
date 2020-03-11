@@ -25,7 +25,7 @@ class AddTextScreen : AppCompatActivity() {
     companion object {
         fun OpenAddText(startingActivity: Activity) {
             val intent = Intent(startingActivity, AddTextScreen::class.java)
-            startingActivity.startActivityForResult(intent,1000)
+            startingActivity.startActivityForResult(intent, 1000)
         }
     }
 
@@ -77,7 +77,7 @@ class AddTextScreen : AppCompatActivity() {
                 sad -> mood = MOOD_SAD
                 smile -> mood = MOOD_SMILE
             }
-
+            var date: String
             intent.putExtra("ADD_NOTE_TITLE", titleET)
             intent.putExtra("ADD_NOTE_TYPE", "text")
             intent.putExtra("ADD_NOTE_TEXT", bodyET)

@@ -32,7 +32,6 @@ class MainScreen : AppCompatActivity() {
     private lateinit var mainAdapter: MainAdapter
     private lateinit var recyclerviewHome: RecyclerView
     private lateinit var sharedPrefs: SharedPreferences
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -40,7 +39,7 @@ class MainScreen : AppCompatActivity() {
         setTheme(getThemeInfo(sharedPrefs.getString(SHARED_PREFS_THEME, DARK_MODE)))
         setContentView(R.layout.main_screen)
         mainViewModel = ViewModelProviders.of(this).get(MainScreenViewModel::class.java)
-//        Log.d("DATETIME THREE", "__"+hereAndNow().toString())
+//        Log.d("DATETIME THREE", "__" + nowDate().toString())
         initRecyclerView()
         setupView()
         setupObserver()
