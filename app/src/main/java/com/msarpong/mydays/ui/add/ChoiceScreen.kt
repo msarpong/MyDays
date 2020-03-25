@@ -31,7 +31,8 @@ class ChoiceScreen : AppCompatActivity() {
 
     private val cardList = listOf(
         Choice(R.drawable.ic_format_align, "Text"),
-        Choice(R.drawable.ic_icon_awesome_running, "Sport")
+        Choice(R.drawable.ic_icon_awesome_running, "Sport"),
+        Choice(R.drawable.ic_icon_awesome_running, "Read")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

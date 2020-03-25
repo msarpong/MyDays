@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.msarpong.mydays.R
+import com.msarpong.mydays.ui.add.read.AddReadScreen
 import com.msarpong.mydays.ui.add.sport.AddSportScreen
 import com.msarpong.mydays.ui.add.text.AddTextScreen
 
@@ -34,6 +35,7 @@ class ChoiceScreenAdapter : ListAdapter<Choice, ChoiceViewHolder>(ChoiceDiffCall
                 when (holder.cardLabel.text) {
                     "Sport" -> AddSportScreen.OpenAddSport(holder.card.context as Activity)
                     "Text" -> AddTextScreen.OpenAddText(holder.card.context as Activity)
+                    "Read" -> AddReadScreen.OpenAddRead(holder.card.context as Activity)
                 }
             }
         }
