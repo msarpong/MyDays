@@ -13,10 +13,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
 import com.msarpong.mydays.utils.*
+import kotlinx.android.synthetic.main.detail_screen.*
 import org.msarpong.mydays.Db.Notes
 
 private const val BUNDLE_ID: String = "BUNDLE_ID"
@@ -79,6 +81,18 @@ class DetailScreen : AppCompatActivity() {
             val intent = Intent(this, SettingScreen::class.java)
             startActivity(intent)
         }
+
+        cardView.setOnLongClickListener {
+
+            val dialog = BottomSheetDialog(this)
+            val view = layoutInflater.inflate(R.layout.bottom_sheet, null)
+//            sharedPrefs = getSharedPreferences(SHARED_PREFS_SETTING, Context.MODE_PRIVATE)
+//            setTheme(getThemeInfo(sharedPrefs.getString(SHARED_PREFS_THEME, DARK_MODE)))
+            dialog.setContentView(view)
+            dialog.show()
+            Toast.makeText(this,"LONG", Toast.LENGTH_LONG).show()
+            true
+        }
     }
 
     private fun setupObserver() {
@@ -95,9 +109,7 @@ class DetailScreen : AppCompatActivity() {
         detailBody.text = dayNotes.text
         detailDate.text = dayNotes.datetime.formatDateTime(DATETIME, FULLDATETIME)
 
-        var moodIcon = dayNotes.mood
-
-        when (moodIcon) {
+        when (dayNotes.mood) {
             MOOD_SMILE -> detailMood.setImageResource(R.drawable.ic_smile)
             MOOD_SAD -> detailMood.setImageResource(R.drawable.ic_sad)
             MOOD_CONFUSED -> detailMood.setImageResource(R.drawable.ic_confused)

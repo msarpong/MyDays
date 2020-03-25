@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
@@ -14,6 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.ChoiceScreen
 import com.msarpong.mydays.ui.calendar.CalendarScreen
@@ -32,6 +34,7 @@ class MainScreen : AppCompatActivity() {
     private lateinit var mainAdapter: MainAdapter
     private lateinit var recyclerviewHome: RecyclerView
     private lateinit var sharedPrefs: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -88,7 +91,7 @@ class MainScreen : AppCompatActivity() {
     private fun showDatas(notes: List<Notes>) {
         mainAdapter.submitList(notes)
         notes.forEach {
-            Log.i("ITEM: ", it.date_note.toString())
+            Log.i("ITEM: ", it.date_note)
         }
     }
 

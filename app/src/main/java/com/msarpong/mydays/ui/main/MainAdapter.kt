@@ -3,6 +3,7 @@ package com.msarpong.mydays.ui.main
 import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.inflate
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
@@ -11,9 +12,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.github.vipulasri.timelineview.TimelineView
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.detail.DetailScreen
 import com.msarpong.mydays.utils.formatDateTime
+import kotlinx.android.synthetic.main.bottom_sheet.view.*
 import org.msarpong.mydays.Db.Notes
 
 
@@ -36,11 +39,7 @@ class MainAdapter :
         holder.diaryCard.setOnClickListener {
             DetailScreen.openDetail(holder.diaryTitle.context as Activity, diary.id)
         }
-        holder.diaryCard.setOnLongClickListener {
-            Toast.makeText(holder.diaryTitle.context, "Long click detected", Toast.LENGTH_SHORT)
-                .show()
-            true
-        }
+
     }
 }
 
