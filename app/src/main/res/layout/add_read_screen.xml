@@ -37,7 +37,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_header">
 
-
         <EditText
             android:id="@+id/editTitle"
             android:layout_width="match_parent"
@@ -56,51 +55,57 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
-            android:text="Che pagine hai letto?"
+            android:text="How many page you have read?"
             android:textColor="@color/colorPrimaryText"
             android:textSize="18sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:weightSum="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0">
+
+        <EditText
+            android:id="@+id/read_page_from"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <EditText
-                android:id="@+id/editBody1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginTop="15dp"
-                android:layout_weight="1"
-                android:autofillHints="@string/hind_read_book"
-                android:background="@drawable/et_style"
-                android:hint="From"
-                android:inputType="number"
-                android:padding="10dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:textColor="@color/colorPrimaryText" />
+            android:layout_margin="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:autofillHints="@string/hind_read_book"
+            android:background="@drawable/et_style"
+            android:hint="From"
+            android:inputType="number"
+            android:padding="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/colorPrimaryText" />
 
 
-            <EditText
-                android:id="@+id/editBody"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_marginTop="15dp"
-                android:layout_weight="1"
-                android:autofillHints="@string/hind_read_book"
-                android:background="@drawable/et_style"
-                android:hint="To"
-                android:inputType="number"
-                android:padding="10dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:textColor="@color/colorPrimaryText" />
-        </LinearLayout>
-
-
+        <EditText
+            android:id="@+id/read_page_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:autofillHints="@string/hind_read_book"
+            android:background="@drawable/et_style"
+            android:hint="To"
+            android:inputType="number"
+            android:padding="10dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:textColor="@color/colorPrimaryText" />
     </LinearLayout>
 
 

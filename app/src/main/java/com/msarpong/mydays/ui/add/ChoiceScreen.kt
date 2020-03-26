@@ -75,7 +75,7 @@ class ChoiceScreen : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == ADD_TEXT && resultCode == Activity.RESULT_OK) {
+        if (requestCode == 1000 && resultCode == Activity.RESULT_OK) {
             if (data != null) {
 
                 choiceViewModel.send(
@@ -95,6 +95,7 @@ class ChoiceScreen : AppCompatActivity() {
             }
             returnToMain()
         }
+
     }
 
     private fun returnToMain() {

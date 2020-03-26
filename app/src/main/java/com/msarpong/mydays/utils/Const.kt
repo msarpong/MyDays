@@ -11,6 +11,7 @@ const val MOOD_SMILE = "SMILE"
 const val MOOD_CONFUSED = "CONFUSED"
 
 const val ADD_TEXT = 1000
+const val ADD_READ = 2000
 
 //const val FULLDATETIME = "yyyy-MM-dd HH:mm"
 const val FULLDATETIME = "E, dd MMM yyyy" //Tue, 02 Jan 2018

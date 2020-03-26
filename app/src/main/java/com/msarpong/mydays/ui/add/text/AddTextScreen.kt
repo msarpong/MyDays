@@ -55,6 +55,7 @@ class AddTextScreen : AppCompatActivity() {
             val intent = Intent(this, SettingScreen::class.java)
             startActivity(intent)
         }
+
     }
 
 
