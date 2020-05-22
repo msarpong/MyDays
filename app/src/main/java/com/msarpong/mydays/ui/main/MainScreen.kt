@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
@@ -15,13 +14,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.add.ChoiceScreen
 import com.msarpong.mydays.ui.calendar.CalendarScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
 import com.msarpong.mydays.utils.*
 import org.msarpong.mydays.Db.Notes
+import org.threeten.bp.LocalDateTime
 
 
 class MainScreen : AppCompatActivity() {
@@ -46,6 +45,13 @@ class MainScreen : AppCompatActivity() {
         initRecyclerView()
         setupView()
         setupObserver()
+        showSom()
+    }
+
+    private fun showSom() {
+        val currentDate = LocalDateTime.now();
+        currentDate.month
+        Log.d("timestampp", currentDate.month.toString())
     }
 
 
@@ -91,7 +97,7 @@ class MainScreen : AppCompatActivity() {
     private fun showDatas(notes: List<Notes>) {
         mainAdapter.submitList(notes)
         notes.forEach {
-            Log.i("ITEM: ", it.date_note)
+            Log.i("ITEM: ", it.datetime)
         }
     }
 

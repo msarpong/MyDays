@@ -4,17 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.widget.CalendarView
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.msarpong.mydays.R
 import com.msarpong.mydays.ui.detailDate.DateScreen
 import com.msarpong.mydays.ui.setting.SettingScreen
-import com.msarpong.mydays.utils.DARK_MODE
-import com.msarpong.mydays.utils.SHARED_PREFS_SETTING
-import com.msarpong.mydays.utils.SHARED_PREFS_THEME
-import com.msarpong.mydays.utils.getThemeInfo
+import com.msarpong.mydays.utils.*
+import org.threeten.bp.LocalDate
+import org.threeten.bp.format.DateTimeFormatter
 
 
 class CalendarScreen : AppCompatActivity() {
@@ -53,11 +52,15 @@ class CalendarScreen : AppCompatActivity() {
         }
 
         calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            val date = dayOfMonth.toString() + "/" + (month + 1) + "/" + year //todo change data 7/3/2020 to 07/03/2020
+            val date =
+                dayOfMonth.toString() + "/" + (month + 1) + "/" + year //todo change data 7/3/2020 to 07/03/2020
+
             val intent = Intent(this, DateScreen::class.java)
-            intent.putExtra("Date", date)
+            intent.putExtra("Date", calendarDate(year, month, dayOfMonth))
             startActivity(intent)
         }
 
+
     }
+
 }

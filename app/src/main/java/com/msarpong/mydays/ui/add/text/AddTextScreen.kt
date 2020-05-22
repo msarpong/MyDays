@@ -58,7 +58,6 @@ class AddTextScreen : AppCompatActivity() {
 
     }
 
-
     private fun saveData() {
         saveBtn = findViewById(R.id.btn_save)
         saveBtn.setOnClickListener {
@@ -84,12 +83,11 @@ class AddTextScreen : AppCompatActivity() {
             intent.putExtra("ADD_NOTE_MOOD", mood)
             intent.putExtra("ADD_NOTE_IMAGE", "image")
             intent.putExtra("ADD_NOTE_DATE", getDate(DATE))
-            intent.putExtra("ADD_NOTE_HOUR", getDate(HOUR))
-            intent.putExtra("ADD_NOTE_DATETIME", getDate(DATETIME))
+            intent.putExtra("ADD_NOTE_HOUR", getTime(HOUR))
+            intent.putExtra("ADD_NOTE_DATETIME", getDateTime(DATETIME))
 
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
     }
-
 }

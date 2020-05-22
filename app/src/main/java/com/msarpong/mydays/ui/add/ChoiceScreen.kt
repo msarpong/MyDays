@@ -46,7 +46,6 @@ class ChoiceScreen : AppCompatActivity() {
         setContentView(R.layout.choice_screen)
         initRecyclerView()
         setupView()
-
     }
 
     private fun initRecyclerView() {

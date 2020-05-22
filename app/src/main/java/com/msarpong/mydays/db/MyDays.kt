@@ -15,6 +15,5 @@ data class Notes(
     @ColumnInfo(name = "date_note") val date_note: String,
     @ColumnInfo(name = "hour_note") val hour_note: String,
     @ColumnInfo(name = "datetime") val datetime: String
-
 )
 

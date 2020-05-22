@@ -35,7 +35,7 @@ class ChoiceScreenAdapter : ListAdapter<Choice, ChoiceViewHolder>(ChoiceDiffCall
                 when (holder.cardLabel.text) {
                     "Sport" -> AddSportScreen.OpenAddSport(holder.card.context as Activity)
                     "Text" -> AddTextScreen.OpenAddText(holder.card.context as Activity)
-                    "Read" -> AddReadScreen.OpenAddRead(holder.card.context as Activity)
+                    "Read" -> AddReadScreen.openReadAdd(holder.card.context as Activity)
                 }
             }
         }

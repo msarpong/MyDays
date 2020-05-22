@@ -89,7 +89,7 @@ class DateScreen : AppCompatActivity() {
     private fun showDatas(notes: List<Notes>) {
         mainAdapter.submitList(notes)
         notes.forEach {
-            Log.i("DATE_DETAIL: ", it.id.toString())
+            Log.i("DATE_DETAIL: ", it.datetime)
         }
     }
 

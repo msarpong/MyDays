@@ -28,6 +28,12 @@ class DetailScreen : AppCompatActivity() {
     private lateinit var sharedPrefs: SharedPreferences
     private lateinit var calendarButton: ImageButton
     private lateinit var settingButton: ImageButton
+    private lateinit var detailViewModel: DetailScreenViewModel
+    private lateinit var detailTitle: TextView
+    private lateinit var detailBody: TextView
+    private lateinit var detailDate: TextView
+    private lateinit var detailMood: ImageView
+    private var noteId = 0
 
     companion object {
         fun openDetail(startingActivity: Activity, gifId: Int) {
@@ -36,15 +42,6 @@ class DetailScreen : AppCompatActivity() {
             startingActivity.startActivity(intent)
         }
     }
-
-    private lateinit var detailViewModel: DetailScreenViewModel
-
-    private lateinit var detailTitle: TextView
-    private lateinit var detailBody: TextView
-    private lateinit var detailDate: TextView
-    private lateinit var detailMood: ImageView
-    private var noteId = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,7 +53,6 @@ class DetailScreen : AppCompatActivity() {
         setupViews()
         setupObserver()
     }
-
 
     private fun setupViews() {
         detailTitle = findViewById(R.id.detail_title)

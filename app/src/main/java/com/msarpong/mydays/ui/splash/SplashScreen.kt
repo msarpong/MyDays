@@ -12,8 +12,6 @@ import com.msarpong.mydays.utils.*
 import java.util.*
 import kotlin.concurrent.schedule
 
-
-
 class SplashScreen : AppCompatActivity() {
 
     private lateinit var sharedPrefs: SharedPreferences

@@ -24,7 +24,7 @@ class AddReadScreen : AppCompatActivity() {
     private lateinit var sharedPrefs: SharedPreferences
 
     companion object {
-        fun OpenAddRead(startingActivity: Activity) {
+        fun openReadAdd(startingActivity: Activity) {
             val intent = Intent(startingActivity, AddReadScreen::class.java)
             startingActivity.startActivityForResult(intent, 1000)
 
